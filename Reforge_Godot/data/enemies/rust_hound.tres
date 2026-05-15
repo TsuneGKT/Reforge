@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/enemies/enemy_data.gd" id="1_enemy_data"]
+
+[resource]
+script = ExtResource("1_enemy_data")
+display_name = &"ENEMY_RUST_HOUND"
+max_health = 40
+attack_damage = 8
+attack_interval = 2.0
+move_speed = 120.0
+detection_range = 200.0
+attack_range = 50.0
+parry_window_frames = 16
+stun_duration = 1.0
+knockback_force = 60.0

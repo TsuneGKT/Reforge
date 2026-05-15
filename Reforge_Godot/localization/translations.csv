@@ -1,0 +1,25 @@
+keys,en,zh,ja
+GAME_TITLE,Reforge,重锻,リフォージ
+UI_START,Start Game,开始游戏,ゲーム開始
+UI_PAUSE,Paused,暂停,一時停止
+UI_RESUME,Resume,继续,再開
+UI_QUIT,Quit,退出,終了
+UI_DEATH,You Have Fallen,你已陨落,倒れた
+UI_INTERACT,Press E to Interact,按 E 交互,Eキーで操作
+UI_CRYSTALLIZE,Crystallize,结晶,結晶化
+UI_ALTAR,Altar,祭坛,祭壇
+HUD_HEALTH,Health,生命,体力
+HUD_ENERGY_EARLY,Sacred Energy,圣能,聖能
+HUD_ENERGY_LATE,Rift Force,异力,異力
+HUD_OVERCLOCK_EARLY,Divine Release,神恩释放,神恩解放
+HUD_OVERCLOCK_LATE,Rift Resonance,异力共鸣,異力共鳴
+HUD_CRYSTAL_EARLY,Purification Crystal,净化结晶,浄化結晶
+HUD_CRYSTAL_LATE,Rift Core,异力凝核,異力凝核
+HUD_TALENT_EARLY,Divine Grace,神恩,神恩
+HUD_TALENT_LATE,Rift Forge,异铸,異鋳
+HUD_ALTAR_EARLY,Purification Altar,净化祭坛,浄化祭壇
+HUD_ALTAR_LATE,Forge,锻造台,鍛造台
+HUD_CRYSTPOINT_EARLY,Purification Point,净化回收点,浄化回収点
+HUD_CRYSTPOINT_LATE,Rift Stabilizer,异力稳定点,異力安定点
+ENEMY_RUST_HOUND,Rust Hound,锈犬,錆犬
+TALENT_SELECT_TITLE,Choose a Talent,选择天赋,天賦を選択

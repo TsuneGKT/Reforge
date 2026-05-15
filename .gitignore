@@ -1,0 +1,11 @@
+.godot/
+**/.godot/
+.import/
+**/.import/
+export.cfg
+export_presets.cfg
+*.tmp
+.DS_Store
+**/.DS_Store
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json

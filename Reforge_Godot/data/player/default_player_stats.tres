@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/player/player_stats.gd" id="1_player_stats"]
+
+[resource]
+script = ExtResource("1_player_stats")
+max_health = 100
+attack_damage = 10
+attack_speed = 2.0
+move_speed = 200.0
+max_energy = 100
+parry_window_frames = 12
+perfect_parry_frames = 6
+perfect_parry_energy = 12
+normal_parry_energy = 6
+dodge_speed = 400.0
+dodge_duration = 0.2
+invincible_frames = 10
