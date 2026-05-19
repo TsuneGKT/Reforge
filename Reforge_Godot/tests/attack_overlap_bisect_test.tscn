@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlndoj3v0x48f"]
+
+[ext_resource type="Script" path="res://tests/attack_overlap_bisect_test.gd" id="1_attack_overlap_bisect_test"]
+
+[node name="AttackOverlapBisectTest" type="Node2D"]
+script = ExtResource("1_attack_overlap_bisect_test")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d30smxdg7o8ja"]
+
+[ext_resource type="Script" path="res://tests/area_under_character_body_test.gd" id="1_area_under_character_body_test"]
+
+[node name="AreaUnderCharacterBodyTest" type="Node2D"]
+script = ExtResource("1_area_under_character_body_test")
