@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4qnyqf2b5m5a"]
+[gd_scene load_steps=18 format=3 uid="uid://c4qnyqf2b5m5a"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_player_script"]
 [ext_resource type="Resource" path="res://data/player/default_player_stats.tres" id="2_player_stats"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://components/health_component/health_component.gd" id="9_health_component_script"]
 [ext_resource type="Script" path="res://entities/player/states/player_stun_state.gd" id="10_stun_state_script"]
 [ext_resource type="Script" path="res://entities/player/states/player_dead_state.gd" id="11_dead_state_script"]
+[ext_resource type="Script" path="res://systems/energy_system.gd" id="12_energy_system_script"]
+[ext_resource type="Script" path="res://systems/overclock_system.gd" id="13_overclock_system_script"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_player_body"]
 radius = 16.0
@@ -87,3 +89,9 @@ script = ExtResource("11_dead_state_script")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_health_component_script")
 max_health = 100
+
+[node name="EnergySystem" type="Node" parent="."]
+script = ExtResource("12_energy_system_script")
+
+[node name="OverclockSystem" type="Node" parent="."]
+script = ExtResource("13_overclock_system_script")

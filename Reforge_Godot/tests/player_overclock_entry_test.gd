@@ -1,87 +1,99 @@
 extends Node2D
 
 var player: Player
-var overclock_events: Array[bool] = []
+var requested_actions: Array[StringName] = []
 
 
 func _ready() -> void:
-	EventBus.overclock_toggled.connect(_on_overclock_toggled)
+	EventBus.overclock_action_requested.connect(_on_overclock_action_requested)
 
 	player = preload("res://entities/player/player.tscn").instantiate()
 	add_child(player)
 	await get_tree().process_frame
 
-	await _test_idle_toggle()
-	await _test_attack_toggle_does_not_interrupt()
-	await _test_stun_blocks_toggle()
-	await _test_death_forces_overclock_off()
+	await _test_pressing_overclock_alone_does_not_request()
+	await _test_attack_request()
+	await _test_dodge_request()
+	await _test_parry_request()
+	await _test_stun_blocks_request()
 	get_tree().quit()
 
 
-func _test_idle_toggle() -> void:
-	if not player.toggle_overclock():
-		_fail("Expected overclock toggle from Idle.")
+func _test_pressing_overclock_alone_does_not_request() -> void:
+	Input.action_press("overclock")
+	await get_tree().process_frame
+	Input.action_release("overclock")
+
+	if not requested_actions.is_empty():
+		_fail("Expected no request from pressing overclock alone, got %s." % requested_actions)
 		return
-	if not player.is_overclock_active:
-		_fail("Expected overclock active after first toggle.")
-		return
-	if not player.toggle_overclock():
-		_fail("Expected overclock toggle off from Idle.")
-		return
-	if player.is_overclock_active:
-		_fail("Expected overclock inactive after second toggle.")
-		return
-	if overclock_events != [true, false]:
-		_fail("Expected idle toggle events [true, false], got %s." % overclock_events)
-		return
-	print("TEST overclock idle toggle ok")
+	print("TEST overclock alone no request ok")
 
 
-func _test_attack_toggle_does_not_interrupt() -> void:
+func _test_attack_request() -> void:
+	Input.action_press("overclock")
 	player.state_machine.change_state(player.attack_state)
 	await get_tree().physics_frame
-	if not player.toggle_overclock():
-		_fail("Expected overclock toggle during Attack.")
-		return
-	if player.state_machine.current_state != player.attack_state:
-		_fail("Expected AttackState to continue after overclock toggle.")
-		return
-	print("TEST overclock attack overlay ok")
+	Input.action_release("overclock")
+
+	_expect_last_request(&"attack")
+	print("TEST overclock attack request ok")
 
 
-func _test_stun_blocks_toggle() -> void:
+func _test_dodge_request() -> void:
+	_return_to_idle()
+	Input.action_press("overclock")
+	player.state_machine.change_state(player.dodge_state)
+	await get_tree().physics_frame
+	Input.action_release("overclock")
+
+	_expect_last_request(&"dodge")
+	print("TEST overclock dodge request ok")
+
+
+func _test_parry_request() -> void:
+	_return_to_idle()
+	Input.action_press("overclock")
+	player.state_machine.change_state(player.parry_state)
+	await get_tree().physics_frame
+	Input.action_release("overclock")
+
+	_expect_last_request(&"parry")
+	print("TEST overclock parry request ok")
+
+
+func _test_stun_blocks_request() -> void:
+	_return_to_idle()
 	player.receive_damage(1)
 	await get_tree().physics_frame
-	var event_count := overclock_events.size()
-	if player.toggle_overclock():
-		_fail("Expected overclock toggle to be blocked during Stun.")
+
+	var request_count := requested_actions.size()
+	Input.action_press("overclock")
+	if player.request_overclock_action(&"attack"):
+		_fail("Expected overclock request to be blocked during Stun.")
 		return
-	if overclock_events.size() != event_count:
-		_fail("Expected no overclock event during Stun.")
+	Input.action_release("overclock")
+
+	if requested_actions.size() != request_count:
+		_fail("Expected no request event during Stun, got %s." % requested_actions)
 		return
 	print("TEST overclock stun block ok")
 
 
-func _test_death_forces_overclock_off() -> void:
-	for i in range(30):
-		await get_tree().physics_frame
+func _return_to_idle() -> void:
+	player.set_attack_area_enabled(false)
+	player.set_parry_area_enabled(false)
+	player.set_dodge_visual_enabled(false)
+	player.set_invincible(false)
+	player.state_machine.change_state(player.idle_state)
 
-	if not player.is_overclock_active:
-		player.toggle_overclock()
 
-	player.receive_damage(999)
-	await get_tree().physics_frame
-
-	if player.is_overclock_active:
-		_fail("Expected overclock inactive after death.")
+func _expect_last_request(expected_action: StringName) -> void:
+	if requested_actions.is_empty():
+		_fail("Expected %s request, got none." % expected_action)
 		return
-	if player.state_machine.current_state != player.dead_state:
-		_fail("Expected DeadState after lethal damage.")
-		return
-	if overclock_events[-1] != false:
-		_fail("Expected death to emit overclock false, got events %s." % overclock_events)
-		return
-	print("TEST overclock death forced off ok")
+	if requested_actions[-1] != expected_action:
+		_fail("Expected %s request, got %s." % [expected_action, requested_actions[-1]])
 
 
 func _fail(message: String) -> void:
@@ -89,5 +101,5 @@ func _fail(message: String) -> void:
 	get_tree().quit(1)
 
 
-func _on_overclock_toggled(is_active: bool) -> void:
-	overclock_events.append(is_active)
+func _on_overclock_action_requested(action_type: StringName) -> void:
+	requested_actions.append(action_type)

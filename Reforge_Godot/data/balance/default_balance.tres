@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BalanceData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/balance/balance_data.gd" id="1_balance_data"]
+
+[resource]
+script = ExtResource("1_balance_data")
+perfect_parry_energy = 12
+normal_parry_energy = 6
+overclock_attack_cost = 3
+overclock_dodge_cost = 8
+overclock_parry_cost = 15
+light_core_energy_ratio = 100.0

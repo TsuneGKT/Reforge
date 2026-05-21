@@ -4,8 +4,17 @@ signal parry_succeeded(is_perfect: bool)
 signal player_hit(damage: int)
 signal player_died
 signal attack_landed(damage: int)
+signal attack_started
+signal attack_finished
+signal dodge_started
+signal parry_started
+signal parry_failed
 signal energy_changed(current: int, max_energy: int)
 signal overclock_toggled(is_active: bool)
+signal overclock_action_requested(action_type: StringName)
+signal overclock_action_accepted(action_type: StringName, cost: int)
+signal overclock_action_triggered(action_type: StringName, cost: int)
+signal overclock_action_failed(action_type: StringName, reason: StringName)
 signal light_core_changed(current: float, max_cores: float)
 signal crystallization_completed
 signal talent_selected(talent_data: Resource)
@@ -31,12 +40,48 @@ func emit_attack_landed(damage: int) -> void:
 	attack_landed.emit(damage)
 
 
+func emit_attack_started() -> void:
+	attack_started.emit()
+
+
+func emit_attack_finished() -> void:
+	attack_finished.emit()
+
+
+func emit_dodge_started() -> void:
+	dodge_started.emit()
+
+
+func emit_parry_started() -> void:
+	parry_started.emit()
+
+
+func emit_parry_failed() -> void:
+	parry_failed.emit()
+
+
 func emit_energy_changed(current: int, max_energy: int) -> void:
 	energy_changed.emit(current, max_energy)
 
 
 func emit_overclock_toggled(is_active: bool) -> void:
 	overclock_toggled.emit(is_active)
+
+
+func emit_overclock_action_requested(action_type: StringName) -> void:
+	overclock_action_requested.emit(action_type)
+
+
+func emit_overclock_action_accepted(action_type: StringName, cost: int) -> void:
+	overclock_action_accepted.emit(action_type, cost)
+
+
+func emit_overclock_action_triggered(action_type: StringName, cost: int) -> void:
+	overclock_action_triggered.emit(action_type, cost)
+
+
+func emit_overclock_action_failed(action_type: StringName, reason: StringName) -> void:
+	overclock_action_failed.emit(action_type, reason)
 
 
 func emit_light_core_changed(current: float, max_cores: float) -> void:

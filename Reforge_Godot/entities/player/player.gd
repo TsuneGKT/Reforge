@@ -27,20 +27,17 @@ var is_attack_area_active := false
 var is_parry_area_active := false
 var is_invincible := false
 var is_dodge_visual_active := false
-var is_overclock_active := false
+var is_overclock_visual_active := false
+var overclock_visual_token := 0
 
 
 func _ready() -> void:
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
+	EventBus.overclock_action_triggered.connect(_on_overclock_action_triggered)
 	health_component.initialize(stats.max_health)
 	set_attack_area_enabled(false)
 	set_parry_area_enabled(false)
 	_update_direction_marker()
-
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("overclock"):
-		toggle_overclock()
 
 
 func get_movement_input() -> Vector2:
@@ -115,24 +112,18 @@ func receive_damage(amount: int) -> bool:
 	return true
 
 
-func toggle_overclock() -> bool:
-	if not can_toggle_overclock():
+func request_overclock_action(action_type: StringName) -> bool:
+	if not Input.is_action_pressed("overclock"):
+		return false
+	if not can_request_overclock_action():
 		return false
 
-	set_overclock_active(not is_overclock_active)
+	EventBus.emit_overclock_action_requested(action_type)
+	print("Player overclock action requested: %s" % action_type)
 	return true
 
 
-func set_overclock_active(is_active: bool) -> void:
-	if is_overclock_active == is_active:
-		return
-
-	is_overclock_active = is_active
-	EventBus.emit_overclock_toggled(is_overclock_active)
-	print("Player overclock toggled: %s" % is_overclock_active)
-
-
-func can_toggle_overclock() -> bool:
+func can_request_overclock_action() -> bool:
 	if health_component.current_health <= 0:
 		return false
 	if state_machine.current_state == stun_state or state_machine.current_state == dead_state:
@@ -205,17 +196,35 @@ func _is_parryable_hitbox(area: Area2D) -> bool:
 
 
 func _enter_dead_state() -> void:
-	set_overclock_active(false)
 	set_attack_area_enabled(false)
 	set_parry_area_enabled(false)
+	is_overclock_visual_active = false
 	set_invincible(false)
 	state_machine.change_state(dead_state)
 	EventBus.emit_player_died()
 	print("Player died")
 
 
+func _on_overclock_action_triggered(_action_type: StringName, _cost: int) -> void:
+	overclock_visual_token += 1
+	var current_token := overclock_visual_token
+	is_overclock_visual_active = true
+	_update_player_state_marker_color()
+
+	await get_tree().create_timer(0.12).timeout
+	if current_token != overclock_visual_token:
+		return
+
+	is_overclock_visual_active = false
+	_update_player_state_marker_color()
+
+
 func _update_player_state_marker_color() -> void:
-	if is_invincible:
+	if state_machine.current_state == dead_state:
+		direction_marker.color = Color(0.8, 0.15, 0.15, 1.0)
+	elif is_overclock_visual_active:
+		direction_marker.color = Color(1.0, 0.78, 0.18, 1.0)
+	elif is_invincible:
 		direction_marker.color = Color(0.45, 1.0, 0.55, 1.0)
 	elif is_dodge_visual_active:
 		direction_marker.color = Color(0.35, 0.9, 0.9, 1.0)

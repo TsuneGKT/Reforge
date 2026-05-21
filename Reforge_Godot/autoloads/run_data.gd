@@ -29,11 +29,13 @@ func reset_run() -> void:
 	EventBus.emit_light_core_changed(light_core_progress + float(light_cores), float(max_light_cores))
 
 
-func add_energy(amount: int) -> void:
+func add_energy(amount: int) -> bool:
 	if amount <= 0:
-		return
+		return false
+	var previous_energy := energy
 	energy = clampi(energy + amount, 0, max_energy)
 	EventBus.emit_energy_changed(energy, max_energy)
+	return energy != previous_energy
 
 
 func consume_energy(amount: int) -> bool:

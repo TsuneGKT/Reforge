@@ -13,10 +13,13 @@ func enter(_previous_state: Node) -> void:
 	active_started = false
 	owner_node.velocity = Vector2.ZERO
 	owner_node.set_attack_area_enabled(false)
+	owner_node.request_overclock_action(&"attack")
+	EventBus.emit_attack_started()
 
 
 func exit(_next_state: Node) -> void:
 	owner_node.set_attack_area_enabled(false)
+	EventBus.emit_attack_finished()
 
 
 func physics_update(delta: float) -> void:

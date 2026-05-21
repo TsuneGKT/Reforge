@@ -18,6 +18,8 @@ func enter(_previous_state: Node) -> void:
 	owner_node.set_facing_direction(dodge_direction)
 	owner_node.set_dodge_visual_enabled(true)
 	owner_node.set_invincible(true)
+	owner_node.request_overclock_action(&"dodge")
+	EventBus.emit_dodge_started()
 	print("Player dodge started")
 
 

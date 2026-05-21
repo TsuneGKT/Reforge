@@ -9,6 +9,8 @@ func enter(_previous_state: Node) -> void:
 	owner_node.velocity = Vector2.ZERO
 	owner_node.set_attack_area_enabled(false)
 	owner_node.set_parry_area_enabled(true)
+	owner_node.request_overclock_action(&"parry")
+	EventBus.emit_parry_started()
 	print("Player parry window opened")
 
 
@@ -27,6 +29,7 @@ func physics_update(delta: float) -> void:
 		return
 
 	if elapsed_time >= owner_node.stats.parry_window_duration:
+		EventBus.emit_parry_failed()
 		_return_to_locomotion()
 
 
