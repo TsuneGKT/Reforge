@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TalentData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/talents/talent_data.gd" id="1_talent_data"]
+
+[resource]
+script = ExtResource("1_talent_data")
+id = &"talent_crack_slash"
+name_key = &"TALENT_CRACK_SLASH_NAME"
+description_key = &"TALENT_CRACK_SLASH_DESC"
+tier = 1
+primary_archetype = &"attack"
+keywords = Array[StringName]([&"crack"])
+effect_type = &"crack_on_attack"
+effect_value = 3.0
+effect_extra_value = 10.0

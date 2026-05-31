@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bootstrap_scene"]
+[gd_scene load_steps=10 format=3 uid="uid://bootstrap_scene"]
 
 [ext_resource type="Script" path="res://rooms/bootstrap/bootstrap.gd" id="1_bootstrap"]
 [ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="2_player_scene"]
-[ext_resource type="PackedScene" path="res://entities/enemies/target_dummy.tscn" id="3_target_dummy_scene"]
+[ext_resource type="PackedScene" path="res://entities/enemies/rust_hound/rust_hound.tscn" id="3_rust_hound_scene"]
 [ext_resource type="PackedScene" path="res://ui/hud/energy_hud.tscn" id="4_energy_hud_scene"]
+[ext_resource type="PackedScene" path="res://entities/interactables/crystallization_point/crystallization_point.tscn" id="5_crystallization_point_scene"]
+[ext_resource type="PackedScene" path="res://entities/interactables/altar/altar.tscn" id="6_altar_scene"]
+[ext_resource type="PackedScene" path="res://ui/hud/light_core_hud.tscn" id="7_light_core_hud_scene"]
+[ext_resource type="PackedScene" path="res://ui/talent_select/talent_selection_ui.tscn" id="8_talent_selection_ui_scene"]
+[ext_resource type="Script" path="res://systems/talent_system.gd" id="9_talent_system_script"]
 
 [node name="Bootstrap" type="Node2D"]
 script = ExtResource("1_bootstrap")
@@ -11,7 +16,22 @@ script = ExtResource("1_bootstrap")
 [node name="Player" parent="." instance=ExtResource("2_player_scene")]
 position = Vector2(960, 540)
 
-[node name="TargetDummy" parent="." instance=ExtResource("3_target_dummy_scene")]
-position = Vector2(960, 620)
+[node name="RustHound" parent="." instance=ExtResource("3_rust_hound_scene")]
+position = Vector2(960, 660)
+target_path = NodePath("../Player")
+
+[node name="CrystallizationPoint" parent="." instance=ExtResource("5_crystallization_point_scene")]
+position = Vector2(880, 540)
+
+[node name="Altar" parent="." instance=ExtResource("6_altar_scene")]
+position = Vector2(1040, 540)
 
 [node name="EnergyHUD" parent="." instance=ExtResource("4_energy_hud_scene")]
+
+[node name="LightCoreHUD" parent="." instance=ExtResource("7_light_core_hud_scene")]
+
+[node name="TalentSelectionUI" parent="." instance=ExtResource("8_talent_selection_ui_scene")]
+
+[node name="TalentSystem" type="Node" parent="."]
+script = ExtResource("9_talent_system_script")
+selection_ui_path = NodePath("../TalentSelectionUI")

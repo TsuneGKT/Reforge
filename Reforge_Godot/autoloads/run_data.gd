@@ -27,6 +27,7 @@ func reset_run() -> void:
 	perfect_parries = 0
 	EventBus.emit_energy_changed(energy, max_energy)
 	EventBus.emit_light_core_changed(light_core_progress + float(light_cores), float(max_light_cores))
+	EventBus.emit_run_reset()
 
 
 func add_energy(amount: int) -> bool:
@@ -48,25 +49,28 @@ func consume_energy(amount: int) -> bool:
 	return true
 
 
-func crystallize() -> void:
+func crystallize() -> bool:
 	if energy <= 0 or max_energy <= 0:
-		return
+		return false
+	if light_cores >= max_light_cores:
+		return false
 
 	var converted_progress := float(energy) / float(max_energy)
 	energy = 0
 	EventBus.emit_energy_changed(energy, max_energy)
+	EventBus.emit_crystallization_succeeded(converted_progress)
 
-	if light_cores < max_light_cores:
-		light_core_progress += converted_progress
-		while light_core_progress >= 1.0 and light_cores < max_light_cores:
-			light_cores += 1
-			light_core_progress -= 1.0
-			EventBus.emit_crystallization_completed()
+	light_core_progress += converted_progress
+	while light_core_progress >= 1.0 and light_cores < max_light_cores:
+		light_cores += 1
+		light_core_progress -= 1.0
+		EventBus.emit_crystallization_completed()
 
-		if light_cores >= max_light_cores:
-			light_core_progress = 0.0
+	if light_cores >= max_light_cores:
+		light_core_progress = 0.0
 
 	EventBus.emit_light_core_changed(light_core_progress + float(light_cores), float(max_light_cores))
+	return true
 
 
 func spend_light_core() -> bool:

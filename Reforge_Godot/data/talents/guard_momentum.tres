@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TalentData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/talents/talent_data.gd" id="1_talent_data"]
+
+[resource]
+script = ExtResource("1_talent_data")
+id = &"talent_guard_momentum"
+name_key = &"TALENT_GUARD_MOMENTUM_NAME"
+description_key = &"TALENT_GUARD_MOMENTUM_DESC"
+tier = 1
+primary_archetype = &"parry"
+keywords = Array[StringName]([&"guard_momentum"])
+effect_type = &"guard_on_perfect_parry"
+effect_value = 1.0
+effect_extra_value = 3.0

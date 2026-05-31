@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/p0_5_light_core_altar_acceptance_test.gd" id="1_p05_acceptance_script"]
+
+[node name="P05LightCoreAltarAcceptanceTest" type="Node2D"]
+script = ExtResource("1_p05_acceptance_script")

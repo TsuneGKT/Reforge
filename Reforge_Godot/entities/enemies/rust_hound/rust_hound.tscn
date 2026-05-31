@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/rust_hound.gd" id="1_rust_hound_script"]
+[ext_resource type="Resource" path="res://data/enemies/rust_hound.tres" id="2_rust_hound_data"]
+[ext_resource type="Script" path="res://components/health_component/health_component.gd" id="3_health_script"]
+[ext_resource type="Script" path="res://components/hitbox/enemy_attack_hitbox.gd" id="4_attack_hitbox_script"]
+[ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="5_state_machine_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_idle_state.gd" id="6_idle_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_chase_state.gd" id="7_chase_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_charge_state.gd" id="8_charge_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_lunge_state.gd" id="9_lunge_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_recovery_state.gd" id="10_recovery_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_parried_stun_state.gd" id="11_parried_stun_state_script"]
+[ext_resource type="Script" path="res://entities/enemies/rust_hound/states/rust_hound_dead_state.gd" id="12_dead_state_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rust_hound_body"]
+size = Vector2(30, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_attack_hitbox"]
+size = Vector2(34, 24)
+
+[node name="RustHound" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_rust_hound_script")
+data = ExtResource("2_rust_hound_data")
+
+[node name="BodySprite" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -12.0
+offset_right = 15.0
+offset_bottom = 12.0
+color = Color(0.7, 0.25, 0.12, 1)
+
+[node name="SnoutMarker" type="Polygon2D" parent="."]
+color = Color(0.95, 0.55, 0.25, 1)
+polygon = PackedVector2Array(0, 18, 7, 8, -7, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rust_hound_body")
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+position = Vector2(0, 24)
+collision_layer = 16
+collision_mask = 2
+monitoring = false
+script = ExtResource("4_attack_hitbox_script")
+damage = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+shape = SubResource("RectangleShape2D_attack_hitbox")
+disabled = true
+
+[node name="AttackPreview" type="ColorRect" parent="AttackHitbox"]
+visible = false
+offset_left = -17.0
+offset_top = -12.0
+offset_right = 17.0
+offset_bottom = 12.0
+color = Color(1, 0.2, 0.1, 0.35)
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_health_script")
+max_health = 40
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_state_machine_script")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("6_idle_state_script")
+
+[node name="ChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("7_chase_state_script")
+
+[node name="ChargeState" type="Node" parent="StateMachine"]
+script = ExtResource("8_charge_state_script")
+
+[node name="LungeState" type="Node" parent="StateMachine"]
+script = ExtResource("9_lunge_state_script")
+
+[node name="RecoveryState" type="Node" parent="StateMachine"]
+script = ExtResource("10_recovery_state_script")
+
+[node name="ParriedStunState" type="Node" parent="StateMachine"]
+script = ExtResource("11_parried_stun_state_script")
+
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("12_dead_state_script")

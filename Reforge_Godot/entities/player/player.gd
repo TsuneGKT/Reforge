@@ -100,6 +100,12 @@ func receive_damage(amount: int) -> bool:
 	if not can_receive_damage():
 		return false
 
+	var damage_context := {
+		"amount": amount,
+		"source": null,
+	}
+	EventBus.emit_player_damage_incoming(damage_context)
+	amount = damage_context.get("amount", amount)
 	if not health_component.take_damage(amount):
 		return false
 
@@ -168,6 +174,7 @@ func _try_hit_body(body: Node) -> void:
 	hit_targets.append(body)
 	body.take_damage(stats.attack_damage)
 	EventBus.emit_attack_landed(stats.attack_damage)
+	EventBus.emit_attack_hit_target(body, stats.attack_damage)
 	print("Player attack landed: %d" % stats.attack_damage)
 
 

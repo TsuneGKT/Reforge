@@ -1,25 +1,51 @@
-keys,en,zh,ja
-GAME_TITLE,Reforge,重锻,リフォージ
-UI_START,Start Game,开始游戏,ゲーム開始
-UI_PAUSE,Paused,暂停,一時停止
-UI_RESUME,Resume,继续,再開
-UI_QUIT,Quit,退出,終了
-UI_DEATH,You Have Fallen,你已陨落,倒れた
-UI_INTERACT,Press E to Interact,按 E 交互,Eキーで操作
-UI_CRYSTALLIZE,Crystallize,结晶,結晶化
-UI_ALTAR,Altar,祭坛,祭壇
-HUD_HEALTH,Health,生命,体力
-HUD_ENERGY_EARLY,Sacred Energy,圣能,聖能
-HUD_ENERGY_LATE,Rift Force,异力,異力
-HUD_OVERCLOCK_EARLY,Divine Release,神恩释放,神恩解放
-HUD_OVERCLOCK_LATE,Rift Resonance,异力共鸣,異力共鳴
-HUD_CRYSTAL_EARLY,Purification Crystal,净化结晶,浄化結晶
-HUD_CRYSTAL_LATE,Rift Core,异力凝核,異力凝核
-HUD_TALENT_EARLY,Divine Grace,神恩,神恩
-HUD_TALENT_LATE,Rift Forge,异铸,異鋳
-HUD_ALTAR_EARLY,Purification Altar,净化祭坛,浄化祭壇
-HUD_ALTAR_LATE,Forge,锻造台,鍛造台
-HUD_CRYSTPOINT_EARLY,Purification Point,净化回收点,浄化回収点
-HUD_CRYSTPOINT_LATE,Rift Stabilizer,异力稳定点,異力安定点
-ENEMY_RUST_HOUND,Rust Hound,锈犬,錆犬
-TALENT_SELECT_TITLE,Choose a Talent,选择天赋,天賦を選択
+keys,ja,zh,en
+GAME_TITLE,リフォージ,重锻,Reforge
+UI_START,ゲーム開始,开始游戏,Start Game
+UI_PAUSE,一時停止,暂停,Paused
+UI_RESUME,再開,继续,Resume
+UI_QUIT,終了,退出,Quit
+UI_DEATH,倒れた,你已陨落,You Have Fallen
+UI_INTERACT,Eキーで操作,按 E 交互,Press E to Interact
+UI_CRYSTALLIZE,結晶化,结晶,Crystallize
+UI_ALTAR,祭壇,祭坛,Altar
+UI_NOT_ENOUGH_ENERGY,エネルギー不足,能量不足,Not Enough Energy
+UI_LIGHT_CORE_FULL,光核満杯,光核已满,Light Core Full
+UI_NEED_LIGHT_CORE,光核が必要,需要 1 颗光核,Need 1 Light Core
+UI_TALENT_REQUESTED_PLACEHOLDER,天賦選択要求済み,天赋选择请求已发出,Talent Selection Requested
+HUD_HEALTH,体力,生命,Health
+HUD_ENERGY_EARLY,聖能,圣能,Sacred Energy
+HUD_ENERGY_LATE,異力,异力,Rift Force
+HUD_OVERCLOCK_EARLY,神恩解放,神恩释放,Divine Release
+HUD_OVERCLOCK_LATE,異力共鳴,异力共鸣,Rift Resonance
+HUD_CRYSTAL_EARLY,浄化結晶,净化结晶,Purification Crystal
+HUD_CRYSTAL_LATE,異力凝核,异力凝核,Rift Core
+HUD_TALENT_EARLY,神恩,神恩,Divine Grace
+HUD_TALENT_LATE,異鋳,异铸,Rift Forge
+HUD_ALTAR_EARLY,浄化祭壇,净化祭坛,Purification Altar
+HUD_ALTAR_LATE,鍛造台,锻造台,Forge
+HUD_CRYSTPOINT_EARLY,浄化回収点,净化回收点,Purification Point
+HUD_CRYSTPOINT_LATE,異力安定点,异力稳定点,Rift Stabilizer
+ENEMY_RUST_HOUND,錆犬,锈犬,Rust Hound
+TALENT_SELECT_TITLE,才能を選択,选择天赋,Choose Talent
+TALENT_SELECT_CONFIRM,選択,选择,Choose
+TALENT_SELECT_TIER_1,レベル1才能,一级天赋,Tier 1 Talent
+TALENT_SELECT_ARCHETYPE_ATTACK,通常攻撃,普攻,Attack
+TALENT_SELECT_ARCHETYPE_PARRY,パリィ,弹反,Parry
+TALENT_SELECT_ARCHETYPE_OVERCLOCK,オーバークロック,超频,Overclock
+TALENT_SELECT_ARCHETYPE_ENERGY,エネルギー,能量,Energy
+TALENT_CRACK_SLASH_NAME,亀裂斬り,裂纹斩,Crack Slash
+TALENT_CRACK_SLASH_DESC,通常攻撃が敵に命中すると、亀裂を1付与する。亀裂が3になると爆発し、追加ダメージを与えて亀裂を消す。,普攻命中敌人时，施加 1 层裂纹。裂纹达到 3 层时爆发，造成额外伤害并清除层数。,"When a basic attack hits an enemy, apply 1 Crack. At 3 Crack, it bursts, deals extra damage, and clears the stacks."
+TALENT_GUARD_MOMENTUM_NAME,守勢ガード,护势格挡,Guard Momentum
+TALENT_GUARD_MOMENTUM_DESC,完璧なパリィに成功すると、守勢を1得る。守勢は次に受けるダメージを3軽減し、被弾後に消費される。,完美弹反成功后获得 1 层护势。护势可使下一次受到的伤害减少 3 点，受伤后消耗。,"After a perfect parry, gain 1 Guard Momentum. It reduces the next damage taken by 3 and is consumed on hit."
+TALENT_RESIDUAL_BACKFLOW_NAME,余熱還流,余热回流,Residual Backflow
+TALENT_RESIDUAL_BACKFLOW_DESC,オーバークロック通常攻撃が敵に命中すると、エネルギーを1回復する。,超频普攻命中敌人时，返还 1 点能量。,"When an overclock basic attack hits an enemy, refund 1 energy."
+KEYWORD_RESONANCE_NAME,共振,共振,Resonance
+KEYWORD_BACKFLOW_NAME,還流,回流,Backflow
+KEYWORD_CRACK_NAME,亀裂,裂纹,Crack
+KEYWORD_OVERLOAD_NAME,過負荷,过载,Overload
+KEYWORD_GUARD_MOMENTUM_NAME,守勢,护势,Guard Momentum
+KEYWORD_RESONANCE_TOOLTIP,共振：ある行動の成功後、次の指定行動を強化または変化させる。,共振：某个动作成功后，强化或改变下一次指定动作。,"Resonance: After a specific action succeeds, empower or alter the next specified action."
+KEYWORD_BACKFLOW_TOOLTIP,還流：エネルギー消費後、条件を満たすと一部のエネルギーを回復する。,回流：能量被消耗后，满足条件时返还部分能量。,"Backflow: After energy is spent, refund part of it when conditions are met."
+KEYWORD_CRACK_TOOLTIP,亀裂：敵に付着する不安定な痕跡。指定数に達すると追加効果を発動する。,裂纹：附着在敌人身上的不稳定痕迹。达到指定层数时触发额外效果。,"Crack: An unstable mark on an enemy. Triggers an extra effect at the specified stack count."
+KEYWORD_OVERLOAD_TOOLTIP,過負荷：短時間強化を得るが、追加の代償や制限を受ける。,过载：短时间获得强化，同时承担额外代价或限制。,"Overload: Gain a short burst of power while taking on an extra cost or restriction."
+KEYWORD_GUARD_MOMENTUM_TOOLTIP,守勢：行動から生まれる短い防御状態。ダメージ、失敗ペナルティ、重要な状態の喪失を抑える。,护势：由动作产生的短暂保护，可抵消伤害、减少失败惩罚或保留关键状态。,"Guard Momentum: Brief protection created by an action, reducing damage, failure penalties, or loss of key states."

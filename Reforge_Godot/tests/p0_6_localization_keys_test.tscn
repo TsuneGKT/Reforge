@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/p0_6_localization_keys_test.gd" id="1_p06_localization_keys_test_script"]
+
+[node name="P06LocalizationKeysTest" type="Node"]
+script = ExtResource("1_p06_localization_keys_test_script")
