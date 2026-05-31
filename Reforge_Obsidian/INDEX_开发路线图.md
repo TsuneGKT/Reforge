@@ -249,11 +249,11 @@ res://
 
 | 任务 | 工作量 | AI协作方式 | 状态 | 完成时间 |
 |------|--------|-----------|------|---------|
-| 原型基准落地（16px tile、2 tile 玩家高度、3/4 俯视、Y 排序规则） | S | AI 对照规范检查现有场景比例，必要时调整测试场景基准 | #todo | |
-| PrototypeVisualController 基础结构 | M | AI 写 Line2D 火柴人原型表现控制脚本，方案 A 先落地 | #todo | |
-| FeedbackSystem 基础节点 | M | AI 写统一监听事件并分发反馈的系统节点 | #todo | |
-| HitStopController | S | AI 写命中和弹反用的短暂停顿工具 | #todo | |
-| ScreenShakeController | S | AI 写 Camera2D 微震工具 | #todo | |
+| 原型基准落地（16px tile、2 tile 玩家高度、3/4 俯视、Y 排序规则） | S | AI 对照规范检查现有场景比例，必要时调整测试场景基准 | #done | 2026-05-31 |
+| PrototypeVisualController 基础结构 | M | AI 写 Line2D 火柴人原型表现控制脚本，方案 A 先落地 | #done | 2026-05-31 |
+| FeedbackSystem 基础节点 | M | AI 写统一监听事件并分发反馈的系统节点 | #done | 2026-05-31 |
+| HitStopController | S | AI 写命中和弹反用的短暂停顿工具 | #done | 2026-05-31 |
+| ScreenShakeController | S | AI 写 Camera2D 微震工具 | #done | 2026-05-31 |
 
 ### P0-8 玩家与锈犬状态可视化
 > 原型规范 → [[ART_原型表现规范与P0资源接入]]
@@ -263,12 +263,12 @@ res://
 
 | 任务 | 工作量 | AI协作方式 | 状态 | 完成时间 |
 |------|--------|-----------|------|---------|
-| 玩家 Line2D 火柴人原型 | M | AI 接入头、躯干、四肢、武器线和基础姿态 | #todo | |
-| 玩家攻击弧光 | M | AI 用 Polygon2D / Texture / Line2D 表达攻击生效范围，并对齐 Hitbox | #todo | |
-| 玩家弹反格挡表现 | M | AI 加武器横挡或格挡弧，弹反成功触发闪光 | #todo | |
-| 玩家闪避、受伤、超频表现 | M | AI 加残影 / 闪红 / 金色脉冲等原型反馈 | #todo | |
-| 锈犬 Line2D 火柴犬原型 | M | AI 接入身体线、头部、腿线、装甲片、扑击预警和拖影 | #todo | |
-| 锈犬 ParriedStun / Hurt / Dead 表现 | S | AI 加弹开、闪白、线条散开死亡表现 | #todo | |
+| 玩家 Line2D 火柴人接入 | M | AI 将 P0-7 的 PrototypeVisualController 挂到 Player，并接入 Idle / Move / Attack 起手 | #todo | |
+| 玩家攻击弧光 | M | AI 接入攻击生效阶段弧光，并对齐攻击方向与 Hitbox | #todo | |
+| 玩家弹反格挡表现 | M | AI 接入弹反开始 / 结束的格挡弧，并让弹反成功触发短闪 | #todo | |
+| 玩家闪避、受伤、超频、死亡表现 | M | AI 接入残影 / 闪红 / 金色脉冲 / 线条散开 | #todo | |
+| 锈犬 Line2D 火柴犬接入 | M | AI 给 RustHound 接入身体线、头部、腿线、装甲片和基础姿态 | #todo | |
+| 锈犬 Charge / Lunge / ParriedStun / Hurt / Dead 表现 | M | AI 接入后蹲蓄力、扑击预警、拖影、弹开、闪白和线条散开 | #todo | |
 | 状态机可视化验收 | S | AI 补最小测试或调试场景，验证每个状态都能被触发并看见 | #todo | |
 
 ### P0-9 音效与地图资源接入

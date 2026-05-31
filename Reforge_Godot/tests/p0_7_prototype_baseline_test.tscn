@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/p0_7_prototype_baseline_test.gd" id="1_p0_7_prototype_baseline_test"]
+
+[node name="P07PrototypeBaselineTest" type="Node"]
+script = ExtResource("1_p0_7_prototype_baseline_test")

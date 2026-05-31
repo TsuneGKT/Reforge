@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bootstrap_scene"]
+[gd_scene load_steps=13 format=3 uid="uid://bootstrap_scene"]
 
 [ext_resource type="Script" path="res://rooms/bootstrap/bootstrap.gd" id="1_bootstrap"]
 [ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="2_player_scene"]
@@ -9,22 +9,36 @@
 [ext_resource type="PackedScene" path="res://ui/hud/light_core_hud.tscn" id="7_light_core_hud_scene"]
 [ext_resource type="PackedScene" path="res://ui/talent_select/talent_selection_ui.tscn" id="8_talent_selection_ui_scene"]
 [ext_resource type="Script" path="res://systems/talent_system.gd" id="9_talent_system_script"]
+[ext_resource type="Script" path="res://systems/feedback_system.gd" id="10_feedback_system_script"]
+[ext_resource type="Script" path="res://systems/hit_stop_controller.gd" id="11_hit_stop_controller_script"]
+[ext_resource type="Script" path="res://systems/screen_shake_controller.gd" id="12_screen_shake_controller_script"]
 
 [node name="Bootstrap" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_bootstrap")
 
+[node name="PrototypeFloor" type="Polygon2D" parent="."]
+z_index = -100
+position = Vector2(320, 180)
+color = Color(0.28, 0.28, 0.28, 1)
+polygon = PackedVector2Array(-352, -208, 352, -208, 352, 208, -352, 208)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+current = true
+
 [node name="Player" parent="." instance=ExtResource("2_player_scene")]
-position = Vector2(960, 540)
+position = Vector2(320, 180)
 
 [node name="RustHound" parent="." instance=ExtResource("3_rust_hound_scene")]
-position = Vector2(960, 660)
+position = Vector2(320, 260)
 target_path = NodePath("../Player")
 
 [node name="CrystallizationPoint" parent="." instance=ExtResource("5_crystallization_point_scene")]
-position = Vector2(880, 540)
+position = Vector2(240, 180)
 
 [node name="Altar" parent="." instance=ExtResource("6_altar_scene")]
-position = Vector2(1040, 540)
+position = Vector2(400, 180)
 
 [node name="EnergyHUD" parent="." instance=ExtResource("4_energy_hud_scene")]
 
@@ -35,3 +49,12 @@ position = Vector2(1040, 540)
 [node name="TalentSystem" type="Node" parent="."]
 script = ExtResource("9_talent_system_script")
 selection_ui_path = NodePath("../TalentSelectionUI")
+
+[node name="FeedbackSystem" type="Node" parent="."]
+script = ExtResource("10_feedback_system_script")
+
+[node name="HitStopController" type="Node" parent="."]
+script = ExtResource("11_hit_stop_controller_script")
+
+[node name="ScreenShakeController" type="Node" parent="."]
+script = ExtResource("12_screen_shake_controller_script")
