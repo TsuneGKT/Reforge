@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fraunces-italic-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fraunces-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fraunces-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("./fraunces-900.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./jetbrains-mono-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./jetbrains-mono-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./noto-serif-sc-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./noto-serif-sc-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("./noto-serif-sc-900.ttf") format("truetype");
+}
