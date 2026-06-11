@@ -169,6 +169,7 @@
   .hero .meta .en{font-family:var(--latin);font-feature-settings:"tnum" 1}
   .hero-visual{display:flex;flex-direction:column;gap:0;border:2px solid var(--ink)}
   .hero-visual .ph{border:none;border-bottom:2px dashed #aaa;aspect-ratio:16/10}
+  .hero-visual img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center 36%;border-bottom:2px solid var(--ink);background:#111}
   .hero-visual .cap{
     display:flex;justify-content:space-between;align-items:center;
     padding:12px 18px;background:var(--ink);color:var(--white);
@@ -486,11 +487,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="ph">
-          <div class="ph-tag">占位 · P0 ASSET</div>
-          <div class="ph-name">《Reforge》概念图 / 实机 GIF</div>
-          <div class="ph-note">待办 8.1 · 整理 Demo 视频 / GIF / 截图</div>
-        </div>
+        <img src="assets/concepts/reforge-key-art-poster.png" alt="《Reforge》概念视觉图">
         <div class="cap"><span><b>REFORGE</b> · 重锻</span><span>2D ACTION ROGUELIKE · P0</span></div>
       </div>
     </div>
@@ -892,7 +889,7 @@
       <p class="evidence-note">展示材料先保留两类最有说服力的证据：一类说明我如何给 Codex 建立项目协作规则，一类说明策划案最终进入 Godot 工程验证。</p>
       <div class="evidence-cards">
         <article class="evidence-card">
-          <img src="assets/workflow/reforge-skill-snapshot.svg" alt="Reforge 专用 Skill 截图式节选">
+          <img src="assets/workflow/reforge-skill-github.png" alt="Reforge 专用 Skill 摘要截图">
           <div class="body">
             <div class="tag">CODEX SKILL</div>
             <h3>Reforge 专用 Skill</h3>
@@ -903,11 +900,11 @@
           </div>
         </article>
         <article class="evidence-card">
-          <img src="assets/workflow/godot-node-tree.svg" alt="Godot 工程节点图">
+          <img src="assets/workflow/godot-bootstrap-editor.png" alt="Godot 工程编辑器截图">
           <div class="body">
             <div class="tag">GODOT PROJECT</div>
-            <h3>Godot 工程节点图</h3>
-            <p>Godot 工程用于验证策划案中的系统设计。玩家、敌人、能量、光核、祭坛和天赋入口都以可运行原型接入 P0 Core Loop。</p>
+            <h3>Godot 工程截图</h3>
+            <p>Godot 工程用于验证策划案中的系统设计。截图展示了 P0 房间、节点树、HUD、交互物和调试输出，核心系统已接入可运行原型。</p>
             <div class="evidence-links">
               <a href="https://github.com/TsuneGKT/Reforge/tree/main/Reforge_Godot" target="_blank" rel="noopener">查看工程仓库 →</a>
               <a onclick="go('demo')">查看 Demo 页面 →</a>
