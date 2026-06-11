@@ -9,3 +9,7 @@ export_presets.cfg
 **/.DS_Store
 **/.obsidian/workspace.json
 **/.obsidian/workspace-mobile.json
+Portfolio/dist/
+.portfolio-build/
+Portfolio/quartz/content/*.md
+!Portfolio/quartz/content/index.md
