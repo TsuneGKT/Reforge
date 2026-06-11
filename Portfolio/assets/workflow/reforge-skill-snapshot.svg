@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#fcfbf9"/>
+  <rect x="26" y="26" width="908" height="488" fill="#111"/>
+  <rect x="26" y="26" width="908" height="44" fill="#c8102e"/>
+  <text x="52" y="55" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="20">reforge-dev / SKILL.md</text>
+  <text x="834" y="55" fill="#fff" font-family="monospace" font-size="13">Codex Skill</text>
+
+  <g font-family="monospace" font-size="18">
+    <text x="58" y="112" fill="#c8102e"># Reforge Dev</text>
+    <text x="58" y="150" fill="#f5f0ea">Use this skill as the standing workflow for developing Reforge.</text>
+
+    <text x="58" y="204" fill="#c8102e">## Project Priorities</text>
+    <text x="82" y="240" fill="#f5f0ea">1. Complete design document → playable prototype.</text>
+    <text x="82" y="274" fill="#f5f0ea">2. Produce portfolio-quality system design and notes.</text>
+    <text x="82" y="308" fill="#f5f0ea">3. Teach practical Godot and implementation thinking.</text>
+
+    <text x="58" y="362" fill="#c8102e">## Multi-Thread Collaboration</text>
+    <text x="82" y="398" fill="#f5f0ea">- Main designer/control: direction, roadmap, final tradeoffs.</text>
+    <text x="82" y="432" fill="#f5f0ea">- System design: energy, talents, enemies, numbers, Core Loop.</text>
+    <text x="82" y="466" fill="#f5f0ea">- Godot development: implementation, debugging, verification.</text>
+    <text x="82" y="500" fill="#f5f0ea">- Art/audio: visual direction, asset specs, production notes.</text>
+  </g>
+</svg>

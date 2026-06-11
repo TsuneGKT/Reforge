@@ -409,6 +409,16 @@
   .case-step b{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--red);font-weight:500}
   .case-step p{font-size:13.5px;line-height:1.8;color:#222}
   .evidence-note{font-size:13px;line-height:1.85;color:#333;max-width:760px;margin-bottom:22px}
+  .evidence-cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .evidence-card{border:2px solid var(--ink);background:var(--white)}
+  .evidence-card img{width:100%;display:block;border-bottom:2px solid var(--ink);background:#111;aspect-ratio:16/9;object-fit:cover}
+  .evidence-card .body{padding:22px 24px}
+  .evidence-card .tag{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--red);margin-bottom:10px}
+  .evidence-card h3{font-family:var(--title);font-size:22px;font-weight:400;letter-spacing:2px;margin-bottom:10px}
+  .evidence-card p{font-size:13.5px;line-height:1.85;color:#333;margin-bottom:18px}
+  .evidence-links{display:flex;gap:10px;flex-wrap:wrap}
+  .evidence-links a{font-size:12px;letter-spacing:1px;border:1.5px solid var(--ink);padding:8px 12px;transition:.15s}
+  .evidence-links a:hover{background:var(--ink);color:var(--white)}
 
   /* ================= 响应式（粗排，Phase 4 再精调） ================= */
   @media (max-width:1000px){
@@ -421,6 +431,7 @@
     .artifact-flow{grid-template-columns:1fr}
     .case-box{grid-template-columns:1fr}
     .case-step{grid-template-columns:1fr;gap:6px}
+    .evidence-cards{grid-template-columns:1fr}
     .acc-head{grid-template-columns:1fr 40px;gap:8px 14px;padding:18px 0}
     .acc-tag,.acc-title,.acc-tease{grid-column:1}
     .acc-plus{grid-column:2;grid-row:1 / 4}
@@ -878,10 +889,31 @@
         <h2>Evidence<span class="cn">展示材料</span></h2>
         <span class="more">持续补充</span>
       </div>
-      <p class="evidence-note">这一页后续会补充 Reforge 专用 Skill、Codex 多窗口分工、Obsidian 文档回写和 GitHub 提交记录截图。当前先展示工作流结构与一条机制的完整落地路径。</p>
-      <div class="grid-2">
-        <div class="ph"><div class="ph-tag">材料 · Skill</div><div class="ph-name">Reforge 专用 Skill</div><div class="ph-note">协作规则 / 文档约束 / 研发流程</div></div>
-        <div class="ph"><div class="ph-tag">材料 · Link</div><div class="ph-name">从机制到实现</div><div class="ph-note">对话窗口 / Obsidian / Roadmap / Godot</div></div>
+      <p class="evidence-note">展示材料先保留两类最有说服力的证据：一类说明我如何给 Codex 建立项目协作规则，一类说明策划案最终进入 Godot 工程验证。</p>
+      <div class="evidence-cards">
+        <article class="evidence-card">
+          <img src="assets/workflow/reforge-skill-snapshot.svg" alt="Reforge 专用 Skill 截图式节选">
+          <div class="body">
+            <div class="tag">CODEX SKILL</div>
+            <h3>Reforge 专用 Skill</h3>
+            <p>这个 Skill 定义了 Codex 在 Reforge 项目中的协作方式，包括文档层级、设计流程、研发规则、Obsidian 回写和 Godot 实现约束。</p>
+            <div class="evidence-links">
+              <a href="https://github.com/TsuneGKT/Reforge/blob/main/Portfolio/evidence/reforge-dev-skill.md" target="_blank" rel="noopener">查看 Skill 摘要 →</a>
+            </div>
+          </div>
+        </article>
+        <article class="evidence-card">
+          <img src="assets/workflow/godot-node-tree.svg" alt="Godot 工程节点图">
+          <div class="body">
+            <div class="tag">GODOT PROJECT</div>
+            <h3>Godot 工程节点图</h3>
+            <p>Godot 工程用于验证策划案中的系统设计。玩家、敌人、能量、光核、祭坛和天赋入口都以可运行原型接入 P0 Core Loop。</p>
+            <div class="evidence-links">
+              <a href="https://github.com/TsuneGKT/Reforge/tree/main/Reforge_Godot" target="_blank" rel="noopener">查看工程仓库 →</a>
+              <a onclick="go('demo')">查看 Demo 页面 →</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
