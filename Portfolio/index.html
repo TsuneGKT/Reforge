@@ -381,12 +381,34 @@
   .win-card h3{font-family:var(--title);font-size:20px;font-weight:400;letter-spacing:2px;margin-bottom:4px}
   .win-card .en{font-family:var(--latin);font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.6;margin-bottom:14px}
   .win-card p{font-size:13px;line-height:1.8;color:#333}
+  .win-card .out{border-top:1px solid var(--ink);margin-top:18px;padding-top:12px;font-size:12px;line-height:1.7;color:#555}
+  .win-card .out b{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--red);margin-right:6px}
 
   /* 工作流链路（横向流程） */
   .flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:0}
   .flow .lnode{border-color:var(--ink);color:var(--ink)}
   .flow .larr{color:var(--red)}
   .flow .lnode.dark{background:var(--ink);color:var(--white)}
+  .artifact-flow{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink);border-left:2px solid var(--ink)}
+  .artifact{min-height:170px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:20px 18px;display:flex;flex-direction:column;gap:10px;background:var(--white)}
+  .artifact .tag{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--red)}
+  .artifact h3{font-family:var(--title);font-size:19px;font-weight:400;letter-spacing:1px}
+  .artifact p{font-size:12.5px;line-height:1.75;color:#333;flex:1}
+  .artifact a{font-size:12px;letter-spacing:1px;border-bottom:1px solid var(--ink);align-self:flex-start;cursor:pointer}
+  .artifact.dark{background:var(--ink);color:var(--white)}
+  .artifact.dark .tag,.artifact.dark p{color:#ccc}
+  .artifact.dark a{border-color:var(--white)}
+  .case-box{border:2px solid var(--ink);display:grid;grid-template-columns:1fr 1.6fr;background:var(--white)}
+  .case-side{background:var(--ink);color:var(--white);padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+  .case-side .tag{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--red)}
+  .case-side h3{font-family:var(--title);font-size:30px;font-weight:400;letter-spacing:2px;line-height:1.2;margin:18px 0}
+  .case-side p{font-size:13px;line-height:1.8;color:#ddd}
+  .case-steps{padding:24px 28px;display:grid;gap:0}
+  .case-step{display:grid;grid-template-columns:112px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #ddd}
+  .case-step:last-child{border-bottom:none}
+  .case-step b{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--red);font-weight:500}
+  .case-step p{font-size:13.5px;line-height:1.8;color:#222}
+  .evidence-note{font-size:13px;line-height:1.85;color:#333;max-width:760px;margin-bottom:22px}
 
   /* ================= 响应式（粗排，Phase 4 再精调） ================= */
   @media (max-width:1000px){
@@ -396,6 +418,9 @@
     .hero-inner{grid-template-columns:1fr}
     .abilities,.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}
     .entries{grid-template-columns:1fr 1fr}
+    .artifact-flow{grid-template-columns:1fr}
+    .case-box{grid-template-columns:1fr}
+    .case-step{grid-template-columns:1fr;gap:6px}
     .acc-head{grid-template-columns:1fr 40px;gap:8px 14px;padding:18px 0}
     .acc-tag,.acc-title,.acc-tease{grid-column:1}
     .acc-plus{grid-column:2;grid-row:1 / 4}
@@ -737,8 +762,8 @@
       <h1>Codex 协作工作流</h1>
       <div class="en">AI-Assisted Production</div>
       <div class="lead">
-        <p>我为 Reforge 创建了专用 Skill，并将对话分为主策、系统策划、研发、美术等窗口。讨论、设计、文档和工程实现通过 Obsidian 与 Godot 形成连续流程。</p>
-        <p>Codex 是协作工具——方向、优先级、范围和最终取舍由我负责。Skill 和多窗口让 AI 协作变成可复用的生产流程：Obsidian 承接结论，Godot 验证玩法。</p>
+        <p>这里展示我如何通过 Codex 建立 Reforge 的协作流程，把想法讨论、系统设计、策划案、路线图、Godot 实现和复盘记录连接起来。</p>
+        <p>我为 Reforge 创建了专用 Skill，并将对话分为主策、系统策划、研发、美术等窗口。Codex 参与讨论、整理、实现和验证，我负责方向、优先级、范围和最终取舍。</p>
       </div>
     </div>
   </div>
@@ -747,7 +772,7 @@
     <div class="inner">
       <div class="section-head">
         <h2>Pipeline<span class="cn">工作流链路</span></h2>
-        <span class="more">想法 → 验证</span>
+        <span class="more">从想法到可验证结果</span>
       </div>
       <div class="flow">
         <div class="lnode">讨论想法</div>
@@ -768,14 +793,81 @@
   <section>
     <div class="inner">
       <div class="section-head">
+        <h2>Output<span class="cn">过程产物</span></h2>
+        <span class="more">证据链</span>
+      </div>
+      <div class="artifact-flow">
+        <div class="artifact">
+          <div class="tag">01 · DESIGN</div>
+          <h3>系统规则</h3>
+          <p>先确认机制目的、核心规则、资源流和边界，沉淀为稳定的 DESIGN 文档。</p>
+          <a data-doc="design_核心系统设计文档">核心系统设计 →</a>
+        </div>
+        <div class="artifact">
+          <div class="tag">02 · PLAN</div>
+          <h3>执行策划案</h3>
+          <p>将系统规则拆成玩家行为、数值、状态、信号、程序需求和验收标准。</p>
+          <a data-doc="策划案_能量系统">能量系统策划案 →</a>
+        </div>
+        <div class="artifact">
+          <div class="tag">03 · ROADMAP</div>
+          <h3>任务拆分</h3>
+          <p>由策划案反推路线图，形成可实现、可测试、可标记完成的阶段任务。</p>
+          <a data-doc="index_开发路线图">开发路线图 →</a>
+        </div>
+        <div class="artifact dark">
+          <div class="tag">04 · GODOT</div>
+          <h3>工程验证</h3>
+          <p>研发窗口按策划案进入 Godot 实现，通过测试和试玩确认核心循环成立。</p>
+          <a onclick="go('demo')">查看 Demo →</a>
+        </div>
+        <div class="artifact">
+          <div class="tag">05 · REVIEW</div>
+          <h3>复盘回写</h3>
+          <p>验证后把问题、取舍和下一步写回文档，让项目知识库持续更新。</p>
+          <a data-doc="art_美术失败复盘">美术失败复盘 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <div class="section-head">
         <h2>Windows<span class="cn">多窗口分工</span></h2>
         <span class="more">4 ROLES</span>
       </div>
       <div class="grid-4">
-        <div class="win-card"><h3>主策窗口</h3><div class="en">Direction</div><p>总体方向、核心机制、优先级把控与文档总控。</p></div>
-        <div class="win-card"><h3>系统策划窗口</h3><div class="en">Systems</div><p>能量、超频、天赋、怪物、Boss、数值、Core Loop 和构筑体验；将设计文档转化为可执行策划案。</p></div>
-        <div class="win-card"><h3>研发窗口</h3><div class="en">Engineering</div><p>按策划案推进 Godot 实现、测试、Debug、代码解释和开发日志。</p></div>
-        <div class="win-card"><h3>美术窗口</h3><div class="en">Art</div><p>美术方向、资产规格、Prompt、原型表现和资源接入。</p></div>
+        <div class="win-card"><h3>主策窗口</h3><div class="en">Direction</div><p>总体方向、核心机制、优先级把控与文档总控。</p><div class="out"><b>产出</b>核心循环、路线图、网页方案和阶段取舍。</div></div>
+        <div class="win-card"><h3>系统策划窗口</h3><div class="en">Systems</div><p>能量、超频、天赋、怪物、Boss、数值、Core Loop 和构筑体验；将设计文档转化为可执行策划案。</p><div class="out"><b>产出</b>玩家行为、能量、锈犬、光核与祭坛等策划案。</div></div>
+        <div class="win-card"><h3>研发窗口</h3><div class="en">Engineering</div><p>按策划案推进 Godot 实现、测试、Debug、代码解释和开发日志。</p><div class="out"><b>产出</b>Godot 系统实现、测试用例、Git 提交和部署流程。</div></div>
+        <div class="win-card"><h3>美术窗口</h3><div class="en">Art</div><p>美术方向、资产规格、Prompt、原型表现和资源接入。</p><div class="out"><b>产出</b>美术规格、Prompt 规范、资源接入方案和失败复盘。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <div class="section-head">
+        <h2>Case<span class="cn">机制案例</span></h2>
+        <span class="more">能量系统</span>
+      </div>
+      <div class="case-box">
+        <div class="case-side">
+          <div>
+            <div class="tag">FROM DISCUSSION TO IMPLEMENTATION</div>
+            <h3>能量系统如何落地</h3>
+            <p>能量系统是 Reforge P0 Core Loop 的资源核心。它连接弹反、超频、清房结晶、光核进度和祭坛天赋。</p>
+          </div>
+          <p>这个案例展示一条机制如何从设计讨论进入文档、任务和工程验证。</p>
+        </div>
+        <div class="case-steps">
+          <div class="case-step"><b>系统讨论</b><p>先确定能量在 Core Loop 中的作用：弹反获取能量，战斗中消耗能量超频强化动作，清房后把剩余能量结晶为光核进度。</p></div>
+          <div class="case-step"><b>DESIGN</b><p>写入 DESIGN_能量系统，明确能量来源、消耗、超频关系、清房结晶和系统边界。</p></div>
+          <div class="case-step"><b>策划案</b><p>扩展为策划案_能量系统，补充数值、状态、信号、程序需求和验收标准。</p></div>
+          <div class="case-step"><b>路线图</b><p>根据策划案反推 P0-3 任务，拆成可以实现和验收的能量获取、消耗、显示、结晶和光核挂接。</p></div>
+          <div class="case-step"><b>工程验证</b><p>研发窗口进入 Godot 实现，通过测试和试玩确认资源流能支撑房间战斗与构筑推进。</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -784,11 +876,12 @@
     <div class="inner">
       <div class="section-head">
         <h2>Evidence<span class="cn">展示材料</span></h2>
-        <span class="more">待整理</span>
+        <span class="more">持续补充</span>
       </div>
+      <p class="evidence-note">这一页后续会补充 Reforge 专用 Skill、Codex 多窗口分工、Obsidian 文档回写和 GitHub 提交记录截图。当前先展示工作流结构与一条机制的完整落地路径。</p>
       <div class="grid-2">
-        <div class="ph"><div class="ph-tag">占位 · 材料</div><div class="ph-name">Reforge 专用 Skill</div><div class="ph-note">Skill 定义 / 使用截图</div></div>
-        <div class="ph"><div class="ph-tag">占位 · 材料</div><div class="ph-name">多窗口分工实例</div><div class="ph-note">一条机制从讨论到落地的完整链路截图</div></div>
+        <div class="ph"><div class="ph-tag">材料 · Skill</div><div class="ph-name">Reforge 专用 Skill</div><div class="ph-note">协作规则 / 文档约束 / 研发流程</div></div>
+        <div class="ph"><div class="ph-tag">材料 · Link</div><div class="ph-name">从机制到实现</div><div class="ph-note">对话窗口 / Obsidian / Roadmap / Godot</div></div>
       </div>
     </div>
   </section>
