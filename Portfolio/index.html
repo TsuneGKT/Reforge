@@ -17,7 +17,8 @@
     --ink:#111111;
     --red:#c8102e;
     --grey:#888;
-    --title:"KingHwa_OldSong","Noto Serif SC",serif;
+    --display:"KingHwa_OldSong","Noto Serif SC",serif;
+    --title:"Noto Serif SC","Songti SC",serif;
     --body:"Noto Serif SC","Songti SC",serif;
     --latin:"Fraunces",serif;
     --mono:"JetBrains Mono",monospace;
@@ -65,7 +66,7 @@
     100%{transform:translate(0,0)}
   }
   .intro-title{
-    font-family:var(--title);
+    font-family:var(--display);
     font-size:clamp(54px,9vw,120px);
     font-weight:400;
     letter-spacing:.16em;
@@ -111,7 +112,7 @@
   }
   .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
   .brand .seal{width:11px;height:11px;background:var(--red)}
-  .brand-text{font-family:var(--title);font-size:19px;letter-spacing:.16em;white-space:nowrap}
+  .brand-text{font-family:var(--display);font-size:19px;letter-spacing:.16em;white-space:nowrap}
   .brand-text .red{color:var(--red)}
   .nav-links{display:flex;gap:34px;list-style:none;font-size:13.5px;letter-spacing:2px}
   .nav-links li{padding:4px 0;border-bottom:3px solid transparent;transition:.15s;cursor:pointer;white-space:nowrap}
@@ -124,23 +125,37 @@
   /* ================= 通用 ================= */
   .page{display:none}
   .page.show{display:block}
-  section{padding:64px 56px;border-bottom:2px solid var(--ink)}
+  section{padding:64px 56px}
   .inner{max-width:1180px;margin:0 auto}
   .kicker{font-family:var(--latin);font-size:12px;letter-spacing:5px;color:var(--red);text-transform:uppercase;font-feature-settings:"tnum" 1}
-  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:38px;border-bottom:1px solid var(--ink);padding-bottom:12px}
-  .section-head h2{font-family:var(--latin);font-size:26px;letter-spacing:3px;text-transform:uppercase;font-weight:600}
-  .section-head h2 .cn{font-family:var(--title);margin-left:16px;font-size:24px;letter-spacing:6px;font-weight:400}
-  .section-head .more{font-family:var(--mono);font-size:11px;letter-spacing:3px;border-bottom:1px solid var(--ink);padding-bottom:2px}
-  .section-head .more:hover{color:var(--red);border-color:var(--red)}
+  /* section-head 统一成章节头样式：红标签在上 / 京华大字 / 灰英文在下 / 无横线 */
+  .section-head{
+    max-width:1180px;margin:0 auto 38px;padding-left:24px;border-left:3px solid var(--red);
+    display:flex;flex-direction:column;align-items:flex-start
+  }
+  .section-head .more{
+    order:-1;font-family:var(--mono);font-size:12px;letter-spacing:4px;color:var(--red);
+    border:none;padding:0;margin:0 0 10px
+  }
+  .section-head .more:hover{color:var(--red)}
+  .section-head h2{
+    display:flex;flex-direction:column-reverse;align-items:flex-start;
+    font-family:var(--latin);font-size:11px;letter-spacing:5px;text-transform:uppercase;
+    color:#999;font-weight:400;line-height:1.4
+  }
+  .section-head h2 .cn{
+    font-family:var(--title);font-size:32px;font-weight:700;letter-spacing:3px;
+    color:var(--ink);text-transform:none;margin:0 0 8px
+  }
 
   /* ===== 章节头（首页：大编号 + 非对称，替代满宽横线）===== */
-  .chapter{max-width:1180px;margin:0 auto 46px}
-  .chapter .ch-no{font-family:var(--latin);font-feature-settings:"tnum" 1;font-size:13px;letter-spacing:4px;color:var(--red);display:block;margin-bottom:12px}
-  .chapter h2{font-family:var(--title);font-size:34px;font-weight:400;letter-spacing:4px;line-height:1.1;margin-bottom:8px}
-  .chapter .ch-en{font-family:var(--latin);font-size:12px;letter-spacing:5px;text-transform:uppercase;color:#bbb}
+  .chapter{max-width:1180px;margin:0 auto 38px;padding-left:24px;border-left:3px solid var(--red)}
+  .chapter .ch-no{font-family:var(--latin);font-feature-settings:"tnum" 1;font-size:12px;letter-spacing:4px;color:var(--red);display:block;margin-bottom:10px}
+  .chapter h2{font-family:var(--title);font-size:32px;font-weight:700;letter-spacing:3px;line-height:1.1;margin-bottom:8px}
+  .chapter .ch-en{font-family:var(--latin);font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#999}
   /* 首页：去掉满宽横线，改用留白节奏 */
   #page-home > section,#page-home .hero{border-bottom:none}
-  #page-home > section{padding:78px 56px}
+  #page-home > section{padding:58px 56px}
 
   /* 占位块：所有未就绪的资产用统一语言标出 */
   .ph{
@@ -157,28 +172,23 @@
   footer .pn b{color:var(--red)}
 
   /* ================= 首页 · HERO ================= */
-  .hero{padding:84px 56px 72px}
-  .hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
-  .hero h1{font-family:var(--title);font-size:49px;font-weight:400;line-height:1.28;letter-spacing:2px;margin:18px 0 26px}
+  .hero{padding:84px 56px 64px}
+  .hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,620px) minmax(280px,500px);gap:58px;align-items:start}
+  .hero h1{font-family:var(--display);font-size:49px;font-weight:400;line-height:1.28;letter-spacing:2px;margin:18px 0 26px}
   .hero h1 .red{color:var(--red)}
   .hero h1 .seg{display:inline-block}
   .hero .intro-text{font-size:15.5px;max-width:560px;color:#222}
+  .hero .intro-text .welcome{font-size:20px;line-height:1.65;margin-bottom:18px}
   .hero .intro-text p{margin-bottom:14px}
   .hero .meta{font-size:12.5px;letter-spacing:2px;border-top:2px solid var(--ink);padding-top:14px;max-width:560px;display:flex;gap:28px;flex-wrap:wrap;margin-top:10px}
   .hero .meta b{color:var(--red);font-weight:700}
   .hero .meta .en{font-family:var(--latin);font-feature-settings:"tnum" 1}
-  .hero-visual{display:flex;flex-direction:column;gap:0;border:2px solid var(--ink)}
+  .hero-visual{display:flex;flex-direction:column;gap:0;border:2px solid var(--ink);width:100%;max-width:270px;justify-self:end;margin-top:-34px}
   .hero-visual .ph{border:none;border-bottom:2px dashed #aaa;aspect-ratio:16/10}
-  .hero-visual img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center 36%;border-bottom:2px solid var(--ink);background:#111}
-  .hero-visual .cap{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:12px 18px;background:var(--ink);color:var(--white);
-    font-family:var(--latin);font-feature-settings:"tnum" 1;font-size:11px;letter-spacing:3px;
-  }
-  .hero-visual .cap b{color:var(--red)}
+  .hero-visual img{width:100%;height:auto;display:block;object-fit:contain;background:#111}
 
   /* ================= 首页 · 能力体现（报刊式：顶线 + 编号，去盒子）================= */
-  .abilities{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+  .abilities{display:grid;grid-template-columns:repeat(3,1fr);gap:42px}
   .ability{border:none;border-top:2px solid var(--ink);padding:22px 0 0;background:none;transition:.2s}
   .ability .no{font-family:var(--title);font-size:30px;font-weight:400;color:var(--red);line-height:1;margin-bottom:18px}
   .ability h3{font-family:var(--title);font-size:20px;font-weight:400;letter-spacing:1px;margin-bottom:12px}
@@ -186,21 +196,22 @@
   .ability p{font-size:13.5px;line-height:1.85;color:#333}
 
   /* ================= 首页 · 四板块入口 ================= */
-  .entries{display:grid;grid-template-columns:repeat(4,1fr)}
-  .entry{padding:36px 28px 32px;border:2px solid var(--ink);margin:0 -2px -2px 0;cursor:pointer;background:var(--white);transition:.18s;display:flex;flex-direction:column}
+  .entries{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .entry{padding:26px 30px 24px;border:2px solid var(--ink);cursor:pointer;background:var(--white);transition:.18s;display:flex;flex-direction:column;min-height:185px}
   .entry:hover{background:var(--ink);color:var(--white)}
   .entry:hover .arr{color:var(--red)}
   .entry .num{font-family:var(--latin);font-feature-settings:"tnum" 1;font-size:11px;letter-spacing:3px;color:var(--red);margin-bottom:16px}
   .entry h3{font-family:var(--title);font-size:24px;font-weight:400;letter-spacing:2px;margin-bottom:6px}
   .entry .en{font-family:var(--latin);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;opacity:.7}
   .entry p{font-size:13px;line-height:1.75;flex:1}
-  .entry .arr{margin-top:18px;font-size:13px;letter-spacing:3px;transition:.18s}
+  .entry .arr{margin-top:18px;font-size:12px;letter-spacing:2px;transition:.18s;color:#777}
 
   /* ================= 首页 · Core Loop ================= */
   .loop-wrap{background:var(--ink);border-bottom:2px solid var(--ink)}
   .loop-wrap section{border:none}
-  .loop-wrap .section-head{border-color:var(--white)}
-  .loop-wrap .section-head h2,.loop-wrap .section-head .cn{color:var(--white)}
+  .loop-wrap .section-head{border-left-color:var(--red)}
+  .loop-wrap .section-head h2{color:#aaa}
+  .loop-wrap .section-head h2 .cn{color:var(--white)}
   .loop-svg{display:block;width:100%;height:auto}
   /* .lnode / .larr 由工作流页的链路图复用 */
   .lnode{
@@ -212,12 +223,20 @@
   .larr{display:flex;align-items:center;padding:0 14px;color:var(--red);font-family:var(--latin);font-size:20px}
 
   /* ================= 板块页通用 ================= */
-  .page-head{padding:72px 56px 48px;border-bottom:2px solid var(--ink);text-align:left}
-  .page-head .inner{display:grid;grid-template-columns:1fr;gap:0}
-  .page-head h1{font-family:var(--title);font-size:54px;font-weight:400;letter-spacing:4px;margin:14px 0 6px}
+  .page-head{padding:72px 56px 48px;text-align:left}
+  .page-head .inner{display:grid;grid-template-columns:1fr;gap:0;position:relative}
+  .page-head h1{font-family:var(--display);font-size:54px;font-weight:400;letter-spacing:4px;margin:14px 0 6px}
   .page-head .en{font-family:var(--latin);font-size:15px;letter-spacing:5px;text-transform:uppercase;opacity:.65;margin-bottom:22px}
   .page-head .lead{font-size:15px;max-width:760px;color:#222}
   .page-head .lead p{margin-bottom:12px}
+  .page-head.decorated{position:relative;overflow:hidden}
+  .head-mark,.head-figure,.section-ornament{position:absolute;pointer-events:none;user-select:none}
+  .head-mark{right:0;top:18px;width:260px;opacity:.16;filter:grayscale(.15);z-index:0}
+  .head-figure{right:58px;bottom:-74px;height:330px;opacity:.22;filter:drop-shadow(0 20px 18px rgba(0,0,0,.18));z-index:0}
+  .page-head.decorated .kicker,
+  .page-head.decorated h1,
+  .page-head.decorated .en,
+  .page-head.decorated .lead{position:relative;z-index:1}
 
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
@@ -230,6 +249,24 @@
   .sys-list .row > div{padding:14px 20px;font-size:13.5px}
   .sys-list .row .name{font-weight:700;border-right:1px solid var(--ink);font-family:var(--title);letter-spacing:1px}
   .sys-list .row .stat{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--red);border-left:1px solid var(--ink);display:flex;align-items:center;justify-content:center}
+
+  /* 游戏 Demo 页：双段玩法演示 */
+  .gameplay-section,.systems-section{position:relative;overflow:hidden}
+  .gameplay-section .inner,.systems-section .inner{position:relative;z-index:1}
+  .crystal-ornament{right:34px;top:104px;width:130px;opacity:.12;z-index:0}
+  .altar-ornament{left:34px;bottom:34px;width:240px;opacity:.08;z-index:0}
+  .demo-note{max-width:900px;margin:-10px 0 28px;font-size:14px;line-height:1.9;color:#333}
+  .demo-videos{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .demo-video{border:2px solid var(--ink);background:var(--white)}
+  .demo-video .ph{border:none;border-bottom:2px solid var(--ink);aspect-ratio:16/9;min-height:0}
+  .demo-video video{
+    width:100%;display:block;aspect-ratio:16/9;object-fit:contain;
+    background:#000;border-bottom:2px solid var(--ink)
+  }
+  .demo-video-copy{padding:20px 22px 22px}
+  .demo-video-copy .no{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--red);margin-bottom:8px}
+  .demo-video-copy h3{font-family:var(--title);font-size:22px;font-weight:400;letter-spacing:2px;margin-bottom:8px}
+  .demo-video-copy p{font-size:13.5px;line-height:1.8;color:#333}
 
   /* 文档库页：前缀说明卡 */
   .doc-roles .role-card{border:2px solid var(--ink);padding:26px 24px}
@@ -356,10 +393,29 @@
 
   /* 关系图谱：全宽 Obsidian 风（白底） */
   .graph-wrap{background:var(--paper);border-bottom:2px solid var(--ink);border-top:2px solid var(--ink);padding:38px 0 0}
-  .graph-head{max-width:1180px;margin:0 auto;padding:0 56px 18px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink)}
-  .graph-head h2{font-family:var(--latin);font-size:26px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--ink)}
-  .graph-head h2 .cn{font-family:var(--title);margin-left:16px;font-size:24px;letter-spacing:6px;font-weight:400;color:var(--ink)}
-  .graph-head .graph-hint{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:#999}
+  .graph-head{
+    max-width:1180px;margin:0 auto 38px;padding-left:24px;
+    display:flex;flex-direction:column;align-items:flex-start;
+    border-left:3px solid var(--red)
+  }
+  .graph-head h2{
+    display:flex;flex-direction:column-reverse;align-items:flex-start;
+    font-family:var(--latin);font-size:11px;letter-spacing:5px;text-transform:uppercase;
+    color:#999;font-weight:400;line-height:1.4
+  }
+  .graph-head h2 .cn{
+    font-family:var(--title);font-size:32px;font-weight:700;letter-spacing:3px;
+    color:var(--ink);text-transform:none;margin:0 0 8px
+  }
+  .graph-head h2::after{content:"";display:block;width:72px;height:2px;background:var(--ink);margin-top:16px}
+  .graph-head .graph-hint{
+    order:-1;font-family:var(--mono);font-size:12px;letter-spacing:4px;color:var(--red);
+    margin:0 0 10px;font-weight:500
+  }
+  .graph-head .graph-help{
+    font-family:var(--body);font-size:13px;letter-spacing:1px;color:#777;
+    margin-top:12px;font-weight:700
+  }
   .graph-stage{position:relative;width:100%;height:640px;overflow:hidden;cursor:grab}
   .graph-stage:active{cursor:grabbing}
   .graph-stage svg{width:100%;height:100%;display:block}
@@ -428,11 +484,13 @@
     section,.hero,.page-head{padding-left:24px;padding-right:24px}
     .hero-inner{grid-template-columns:1fr}
     .abilities,.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}
-    .entries{grid-template-columns:1fr 1fr}
+    .demo-videos{grid-template-columns:1fr}
+    .entries{grid-template-columns:1fr}
     .artifact-flow{grid-template-columns:1fr}
     .case-box{grid-template-columns:1fr}
     .case-step{grid-template-columns:1fr;gap:6px}
     .evidence-cards{grid-template-columns:1fr}
+    .head-mark,.head-figure,.section-ornament{display:none}
     .acc-head{grid-template-columns:1fr 40px;gap:8px 14px;padding:18px 0}
     .acc-tag,.acc-title,.acc-tease{grid-column:1}
     .acc-plus{grid-column:2;grid-row:1 / 4}
@@ -476,7 +534,7 @@
         <div class="kicker">■ Game Design Portfolio · Reforge</div>
         <h1><span class="seg">策划案之外，</span><span class="seg"><span class="red">皆是实践</span>。</span></h1>
         <div class="intro-text">
-          <p><b>欢迎来到我的个人网页，感谢您的浏览。</b></p>
+          <p class="welcome"><b>欢迎来到我的个人网页，感谢您的浏览。</b></p>
           <p>我正在寻找游戏策划实习机会。这个网页记录了我从 0 到 1 独立开发游戏《Reforge》的过程，也整理了我在 AI 协作、系统设计、文档管理和项目推进中的一些实践。</p>
           <p>《Reforge》是一款 2D 俯视角动作 Roguelike。目前项目已经确定核心机制，完成了 P0 Core Loop，并围绕游戏机制建立了对应的设计文档、策划案和开发路线图。</p>
         </div>
@@ -488,7 +546,6 @@
       </div>
       <div class="hero-visual">
         <img src="assets/concepts/reforge-key-art-poster.png" alt="《Reforge》概念视觉图">
-        <div class="cap"><span><b>REFORGE</b> · 重锻</span><span>2D ACTION ROGUELIKE · P0</span></div>
       </div>
     </div>
   </section>
@@ -526,38 +583,38 @@
     <div class="inner">
       <div class="chapter">
         <span class="ch-no">02 — 网页的四个部分</span>
-        <h2>从这里进入</h2>
+        <h2>板块介绍</h2>
         <span class="ch-en">Sections</span>
       </div>
-    </div>
-    <div class="entries">
-      <div class="entry" onclick="go('demo')">
-        <div class="num">01 / SECTION</div>
-        <h3>游戏 Demo</h3>
-        <div class="en">Playable Proof</div>
-        <p>《Reforge》的 P0 Core Loop、核心玩法、游戏演示、当前原型状态和 Demo 入口。</p>
-        <div class="arr">进入 →</div>
-      </div>
-      <div class="entry" onclick="go('docs')">
-        <div class="num">02 / SECTION</div>
-        <h3>系统设计文档库</h3>
-        <div class="en">Design Vault</div>
-        <p>Reforge 的 Obsidian 双链文档体系，包括核心设计、世界观、策划案和开发路线图。</p>
-        <div class="arr">进入 →</div>
-      </div>
-      <div class="entry" onclick="go('workflow')">
-        <div class="num">03 / SECTION</div>
-        <h3>Codex 协作工作流</h3>
-        <div class="en">AI Workflow</div>
-        <p>通过 Codex、专用 Skill，以及主策、系统策划、研发、美术多窗口分工建立的开发工作流。</p>
-        <div class="arr">进入 →</div>
-      </div>
-      <div class="entry" onclick="go('more')">
-        <div class="num">04 / SECTION</div>
-        <h3>其他实践与校园经历</h3>
-        <div class="en">Beyond Reforge</div>
-        <p>vibe coding 项目、游戏拆解，以及学生生涯中的奖项、学生工作和活动经历。</p>
-        <div class="arr">进入 →</div>
+      <div class="entries">
+        <div class="entry" onclick="go('demo')">
+          <div class="num">01 / SECTION</div>
+          <h3>游戏 Demo</h3>
+          <div class="en">Playable Proof</div>
+          <p>这里展示《Reforge》的 P0 Core Loop、核心玩法、游戏演示、当前原型状态和 Demo 入口。</p>
+          <div class="arr">点击打开</div>
+        </div>
+        <div class="entry" onclick="go('docs')">
+          <div class="num">02 / SECTION</div>
+          <h3>系统设计文档库</h3>
+          <div class="en">Design Vault</div>
+          <p>这里展示 Reforge 的 Obsidian 双链文档体系，包括核心设计、世界观、策划案和开发路线图。</p>
+          <div class="arr">点击打开</div>
+        </div>
+        <div class="entry" onclick="go('workflow')">
+          <div class="num">03 / SECTION</div>
+          <h3>Codex 协作工作流</h3>
+          <div class="en">AI Workflow</div>
+          <p>这里展示我如何通过 Codex、专用 Skill，以及主策、系统策划、研发、美术多窗口分工建立游戏开发工作流。</p>
+          <div class="arr">点击打开</div>
+        </div>
+        <div class="entry" onclick="go('more')">
+          <div class="num">04 / SECTION</div>
+          <h3>其他实践与校园经历</h3>
+          <div class="en">Beyond Reforge</div>
+          <p>这里记录我的 vibe coding 项目、游戏拆解，以及学生生涯中的奖项、学生工作和活动经历。</p>
+          <div class="arr">点击打开</div>
+        </div>
       </div>
     </div>
   </section>
@@ -568,7 +625,7 @@
       <div class="inner">
         <div class="section-head">
           <h2>P0 Core Loop<span class="cn">核心循环</span></h2>
-          <span class="more" style="color:#999;border-color:#999">已在引擎内验证</span>
+          <span class="more">已在引擎内验证</span>
         </div>
         <svg class="loop-svg" viewBox="0 0 1100 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="P0 核心循环流程图">
           <defs>
@@ -639,8 +696,10 @@
 
 <!-- ════════════════ 01 游戏 Demo ════════════════ -->
 <div class="page" id="page-demo">
-  <div class="page-head">
+  <div class="page-head decorated">
     <div class="inner">
+      <img class="head-mark" src="assets/game-assets/reforge-title-cutout.png" alt="" aria-hidden="true">
+      <img class="head-figure" src="assets/game-assets/reforge-judge-cutout.png" alt="" aria-hidden="true">
       <div class="kicker">■ 01 / Section</div>
       <h1>游戏 Demo</h1>
       <div class="en">Reforge · Playable Proof</div>
@@ -651,21 +710,41 @@
     </div>
   </div>
 
-  <section>
+  <section class="gameplay-section">
+    <img class="section-ornament crystal-ornament" src="assets/game-assets/reforge-crystal-cutout.png" alt="" aria-hidden="true">
     <div class="inner">
       <div class="section-head">
         <h2>Gameplay<span class="cn">游戏演示</span></h2>
-        <span class="more">VIDEO / GIF</span>
+        <span class="more">2 CLIPS · P0</span>
       </div>
-      <div class="ph" style="aspect-ratio:16/9">
-        <div class="ph-tag">占位 · 必备资产</div>
-        <div class="ph-name">P0 实机演示视频</div>
-        <div class="ph-note">一间房的完整循环：战斗 → 弹反 → 超频 → 清房 → 结晶 → 祭坛</div>
+      <p class="demo-note">由于 P0 阶段暂未制作正式美术资产，目前场景与角色使用 itch.io 免费资源，敌人暂时复用玩家角色资产，用于验证玩家行为、战斗资源流和 Core Loop。以下两段演示分别呈现即时战斗操作与清房后的构筑推进。</p>
+      <div class="demo-videos">
+        <article class="demo-video">
+          <video controls preload="metadata" playsinline muted>
+            <source src="assets/videos/reforge-combat-demo.mp4" type="video/mp4">
+          </video>
+          <div class="demo-video-copy">
+            <div class="no">01 / COMBAT</div>
+            <h3>移动、攻击、闪避与弹反</h3>
+            <p>展示八方向移动、普通攻击、闪避和弹反，说明当前原型已经具备基础动作操作与攻防交互。</p>
+          </div>
+        </article>
+        <article class="demo-video">
+          <video controls preload="metadata" playsinline muted>
+            <source src="assets/videos/reforge-talent-menu-demo.mp4" type="video/mp4">
+          </video>
+          <div class="demo-video-copy">
+            <div class="no">02 / BUILD</div>
+            <h3>结晶、天赋与系统菜单</h3>
+            <p>展示清房后将剩余能量结晶为光核，通过祭坛选择天赋，并补充呈现当前系统菜单与原型完成度。</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="systems-section">
+    <img class="section-ornament altar-ornament" src="assets/game-assets/reforge-altar-cutout.png" alt="" aria-hidden="true">
     <div class="inner">
       <div class="section-head">
         <h2>Systems<span class="cn">已完成核心系统</span></h2>
@@ -709,7 +788,7 @@
       <h1>系统设计文档库</h1>
       <div class="en">Obsidian Design Vault</div>
       <div class="lead">
-        <p>这里展示 Reforge 的 Obsidian 双链文档体系。`DESIGN_核心系统设计文档` 是核心机制总纲；每个具体机制都有对应的 `DESIGN_` 文档记录稳定规则和系统边界；`策划案_` 负责执行层内容；`INDEX_开发路线图` 负责整体项目规划。</p>
+        <p>这里展示 Reforge 的 Obsidian 双链文档体系。<strong>DESIGN_核心系统设计文档</strong> 是核心机制总纲；每个具体机制都有对应的 <strong>DESIGN_</strong> 文档记录稳定规则和系统边界；<strong>策划案_</strong> 负责执行层内容；<strong>INDEX_开发路线图</strong> 负责整体项目规划。</p>
         <p>双链让这些内容形成互相引用的项目知识库，也让设计、研发、美术和进度管理连接成一个可追踪的工作体系。</p>
       </div>
     </div>
@@ -740,11 +819,12 @@
     </div>
   </section>
 
-  <!-- 关系图谱：全宽黑底 Obsidian 风，力导向 + 拖拽 + 缩放 + hover 高亮 + 点击跳文档 -->
+  <!-- 关系图谱：全宽 Obsidian 风，力导向 + 拖拽 + 缩放 + hover 高亮 + 点击跳文档 -->
   <div class="graph-wrap">
     <div class="graph-head">
       <h2>Graph<span class="cn">关系图谱</span></h2>
-      <span class="graph-hint">拖动节点 · 滚轮缩放 · 红点可点击进入全文 · 灰点为未公开文档</span>
+      <span class="graph-hint">连接策划、程序、美术</span>
+      <span class="graph-help">点击红点进入全文 · 节点可拖动</span>
     </div>
     <div class="graph-stage" id="graphStage">
       <svg id="graphSvg"></svg>
@@ -791,7 +871,7 @@
         <div class="larr">→</div>
         <div class="lnode">反推路线图</div>
         <div class="larr">→</div>
-        <div class="lnode dark">进入 Godot 实现</div>
+        <div class="lnode">进入 Godot 实现</div>
         <div class="larr">→</div>
         <div class="lnode">验证后更新文档</div>
       </div>
@@ -823,7 +903,7 @@
           <p>由策划案反推路线图，形成可实现、可测试、可标记完成的阶段任务。</p>
           <a data-doc="index_开发路线图">开发路线图 →</a>
         </div>
-        <div class="artifact dark">
+        <div class="artifact">
           <div class="tag">04 · GODOT</div>
           <h3>工程验证</h3>
           <p>研发窗口按策划案进入 Godot 实现，通过测试和试玩确认核心循环成立。</p>
