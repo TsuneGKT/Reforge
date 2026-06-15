@@ -26,6 +26,7 @@ WHITELIST=(
   "策划案_项目基建.md"
   "ART_美术失败复盘.md"
   "ART_美术方向与资产规格.md"
+  "游戏经历.md"
   "拆解_Dead Cells.md"
   "拆解_Sekiro.md"
 )

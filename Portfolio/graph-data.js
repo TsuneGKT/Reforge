@@ -52,6 +52,21 @@ window.GRAPH_DATA = {
 "slug": "design_模板"
 },
 {
+"id": "游戏经历",
+"pub": true,
+"slug": "游戏经历"
+},
+{
+"id": "拆解_Sekiro",
+"pub": true,
+"slug": "拆解_sekiro"
+},
+{
+"id": "拆解_Dead Cells",
+"pub": true,
+"slug": "拆解_dead-cells"
+},
+{
 "id": "策划案_项目基建",
 "pub": true,
 "slug": "策划案_项目基建"
@@ -90,16 +105,6 @@ window.GRAPH_DATA = {
 "id": "策划案_天赋系统",
 "pub": true,
 "slug": "策划案_天赋系统"
-},
-{
-"id": "拆解_Dead Cells",
-"pub": true,
-"slug": "拆解_dead-cells"
-},
-{
-"id": "拆解_Sekiro",
-"pub": true,
-"slug": "拆解_sekiro"
 },
 {
 "id": "策划案_模板",
@@ -286,6 +291,14 @@ window.GRAPH_DATA = {
 {
 "source": "DESIGN_光核与祭坛",
 "target": "DESIGN_模板"
+},
+{
+"source": "游戏经历",
+"target": "拆解_Sekiro"
+},
+{
+"source": "游戏经历",
+"target": "拆解_Dead Cells"
 },
 {
 "source": "策划案_项目基建",
