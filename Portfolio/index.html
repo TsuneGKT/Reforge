@@ -492,6 +492,9 @@
     .case-box{grid-template-columns:1fr}
     .case-step{grid-template-columns:1fr;gap:6px}
     .evidence-cards{grid-template-columns:1fr}
+    .rec-docs{grid-template-columns:1fr;gap:14px}
+    .rec-docs .rec-label{padding-top:0}
+    .rec-list{grid-template-columns:repeat(2,1fr);gap:12px}
     .head-mark,.head-figure,.section-ornament{display:none}
     .acc-head{grid-template-columns:1fr 40px;gap:8px 14px;padding:18px 0}
     .acc-tag,.acc-title,.acc-tease{grid-column:1}
@@ -499,6 +502,45 @@
     .acc-tease{white-space:normal}
     .hero h1{font-size:40px}
     .page-head h1{font-size:40px}
+    .graph-stage{height:520px}
+  }
+  @media (max-width:560px){
+    section{padding-top:48px;padding-bottom:48px}
+    .hero{padding-top:54px;padding-bottom:48px}
+    .page-head{padding-top:54px;padding-bottom:38px}
+    .nav{padding-left:18px;padding-right:18px;gap:14px}
+    .nav-links{font-size:12px;gap:10px 16px;flex-wrap:wrap;overflow-x:visible}
+    .cv{padding:8px 12px;font-size:11px}
+    .brand-text{font-size:17px}
+    section,.hero,.page-head{padding-left:18px;padding-right:18px}
+    #page-home > section{padding-left:18px;padding-right:18px}
+    .chapter,.section-head,.graph-head{padding-left:18px;margin-bottom:28px}
+    .chapter h2,.section-head h2 .cn,.graph-head h2 .cn{font-size:28px;letter-spacing:2px}
+    .hero h1{font-size:34px;letter-spacing:1px}
+    .page-head h1{font-size:34px;letter-spacing:2px}
+    .page-head .en,.kicker{letter-spacing:3px}
+    .hero .intro-text .welcome{font-size:18px}
+    .hero-visual{max-width:220px;justify-self:start;margin-top:4px}
+    .entry{padding:22px 22px 20px;min-height:0}
+    .entry h3{font-size:22px}
+    .sys-list .row{grid-template-columns:1fr}
+    .sys-list .row .name{border-right:none;border-bottom:1px solid var(--ink)}
+    .sys-list .row .stat{border-left:none;border-top:1px solid var(--ink);justify-content:flex-start}
+    .demo-video-copy{padding:18px}
+    .demo-video-copy h3{font-size:20px}
+    .doc-roles .role-card{padding:22px 20px}
+    .rec-list{grid-template-columns:1fr}
+    .graph-stage{height:430px}
+    .graph-help{line-height:1.7}
+    .flow{display:grid;grid-template-columns:1fr;gap:10px}
+    .flow .larr{justify-content:center;padding:0;transform:rotate(90deg)}
+    .lnode{width:100%}
+    .artifact{min-height:0}
+    .case-side{min-height:0}
+    .evidence-card .body{padding:20px}
+    .gal-image{height:340px}
+    .gal-panel{padding:26px 22px 24px}
+    footer{padding:24px 18px;gap:12px;flex-direction:column;align-items:flex-start}
   }
 </style>
 </head>
