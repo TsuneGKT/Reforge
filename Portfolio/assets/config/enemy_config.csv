@@ -1,0 +1,4 @@
+enemy_id,name_key,role,max_hp,attack_damage,move_speed,detect_range,attack_range,windup_sec,parry_window_sec,stun_sec,source_doc,check_rule
+rust_hound,enemy.rust_hound.name,parry_tutorial,40,8,110,220,56,0.45,0.27,1.0,策划案_锈犬,玩家能看见前摇并通过弹反获得约一秒反击窗口
+rust_hound_group,enemy.rust_hound.name,group_pressure,40,8,110,220,56,0.45,0.27,1.0,策划案_锈犬,多只锈犬独立计时并自然错开攻击节奏
+rust_hound_test_low_hp,enemy.rust_hound.name,balance_variant,30,8,110,220,56,0.45,0.27,1.0,策划案_锈犬,用于测试四刀击杀和三刀击杀对教学节奏的影响

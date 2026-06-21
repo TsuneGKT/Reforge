@@ -1,0 +1,8 @@
+param_id,system,value,unit,usage,source_doc,check_rule
+max_energy,energy,100,energy,能量池上限,策划案_能量系统,当前能量不能超过100
+perfect_parry_gain,energy,12,energy,完美弹反回能,策划案_能量系统,完美弹反后能量增加12点
+normal_parry_gain,energy,6,energy,普通弹反回能,策划案_能量系统,普通弹反后能量增加6点
+overclock_attack_cost,overclock,3,energy,超频普攻命中消耗,策划案_能量系统,超频普攻命中后扣除3点能量
+overclock_dodge_cost,overclock,8,energy,超频闪避触发消耗,策划案_能量系统,超频闪避触发时扣除8点能量
+overclock_parry_cost,overclock,15,energy,超频弹反成功消耗,策划案_能量系统,超频弹反成功后基础回能再扣除15点能量
+light_core_ratio,light_core,100,energy_per_core,光核兑换比例,策划案_能量系统,100点能量可结晶为1颗光核进度

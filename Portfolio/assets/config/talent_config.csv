@@ -1,0 +1,5 @@
+talent_id,name_key,desc_key,tier,main_build,keyword,trigger,effect_param,cost_rule,status,source_doc,check_rule
+talent_deflect_resonance,talent.deflect_resonance.name,talent.deflect_resonance.desc,2,parry,resonance,parry_success,next_attack_overclock,requires_overclock_energy,candidate,DATA_天赋池,弹反成功后下一次普攻获得超频效果
+talent_overclock_backflow,talent.overclock_backflow.name,talent.overclock_backflow.desc,2,overclock,backflow,overclock_kill,refund_cost_50_percent,kill_required,candidate,DATA_天赋池,超频动作击杀敌人后返还本次消耗的一半
+talent_crack_slash,talent.crack_slash.name,talent.crack_slash.desc,1,attack,crack,attack_hit,add_crack_stack_1,requires_same_target,candidate,DATA_天赋池,普攻命中后目标获得裂纹层数并在满层时爆发
+talent_guard_momentum,talent.guard_momentum.name,talent.guard_momentum.desc,1,parry,guard_momentum,perfect_parry,gain_guard_stack_1,perfect_only,candidate,DATA_天赋池,完美弹反后获得护势并抵消下一次部分伤害

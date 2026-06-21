@@ -107,6 +107,11 @@ window.GRAPH_DATA = {
 "slug": "策划案_天赋系统"
 },
 {
+"id": "DATA_配置表设计样例",
+"pub": true,
+"slug": "data_配置表设计样例"
+},
+{
 "id": "策划案_模板",
 "pub": false,
 "slug": "策划案_模板"
@@ -475,6 +480,22 @@ window.GRAPH_DATA = {
 {
 "source": "DESIGN_玩家行为系统",
 "target": "DESIGN_能量系统"
+},
+{
+"source": "DATA_配置表设计样例",
+"target": "DESIGN_核心系统设计文档"
+},
+{
+"source": "DATA_配置表设计样例",
+"target": "策划案_能量系统"
+},
+{
+"source": "DATA_配置表设计样例",
+"target": "策划案_锈犬"
+},
+{
+"source": "DATA_配置表设计样例",
+"target": "DATA_天赋池"
 },
 {
 "source": "拆解_Sekiro",

@@ -393,6 +393,35 @@
   .rec-list a b{font-family:var(--title);font-size:16px;font-weight:400;letter-spacing:1px}
   .rec-list a span{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:#888}
 
+  /* 配置表样例：CSV 预览 + 下载 */
+  .config-showcase{margin-top:38px;border-top:2px solid var(--ink);padding-top:30px}
+  .config-note{max-width:860px;font-size:14px;line-height:1.9;color:#333;margin:-10px 0 24px}
+  .config-cards{display:grid;gap:22px;min-width:0}
+  .config-card{border:2px solid var(--ink);background:var(--white);min-width:0;overflow:hidden}
+  .config-card-head{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:18px 20px;border-bottom:2px solid var(--ink)
+  }
+  .config-card-head .tag{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--red);margin-bottom:4px}
+  .config-card-head h3{font-family:var(--title);font-size:22px;font-weight:400;letter-spacing:1px}
+  .config-card-head a{
+    flex-shrink:0;border:1.5px solid var(--ink);padding:8px 12px;
+    font-size:12px;letter-spacing:1px;transition:.15s
+  }
+  .config-card-head a:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+  .config-table-wrap{overflow-x:auto;max-width:100%}
+  .config-table{width:100%;border-collapse:collapse;min-width:760px}
+  .config-table th,.config-table td{
+    border-right:1px solid var(--ink);border-bottom:1px solid #ddd;
+    padding:10px 12px;text-align:left;font-size:12px;line-height:1.55;vertical-align:top
+  }
+  .config-table th{
+    font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--red);
+    background:var(--paper);white-space:nowrap
+  }
+  .config-table th:last-child,.config-table td:last-child{border-right:none}
+  .config-card-foot{padding:12px 20px;font-size:12px;line-height:1.75;color:#555;background:var(--paper)}
+
   /* 关系图谱：全宽 Obsidian 风（白底） */
   .graph-wrap{background:var(--paper);border-bottom:2px solid var(--ink);border-top:2px solid var(--ink);padding:38px 0 0}
   .graph-head{
@@ -495,6 +524,8 @@
     .rec-docs{grid-template-columns:1fr;gap:14px}
     .rec-docs .rec-label{padding-top:0}
     .rec-list{grid-template-columns:repeat(2,1fr);gap:12px}
+    .config-card-head{align-items:flex-start;flex-direction:column}
+    .config-table{min-width:700px}
     .head-mark,.head-figure,.section-ornament{display:none}
     .acc-head{grid-template-columns:1fr 40px;gap:8px 14px;padding:18px 0}
     .acc-tag,.acc-title,.acc-tease{grid-column:1}
@@ -642,7 +673,7 @@
           <div class="num">02 / SECTION</div>
           <h3>系统设计文档库</h3>
           <div class="en">Design Vault</div>
-          <p>这里展示 Reforge 的 Obsidian 双链文档体系，包括核心设计、世界观、策划案和开发路线图。</p>
+          <p>这里展示 Reforge 的 Obsidian 双链文档体系，包括核心设计、世界观、策划案、配置表和开发路线图。</p>
           <div class="arr">点击打开</div>
         </div>
         <div class="entry" onclick="go('workflow')">
@@ -844,7 +875,7 @@
       <h1>系统设计文档库</h1>
       <div class="en">Obsidian Design Vault</div>
       <div class="lead">
-        <p>这里展示 Reforge 的 Obsidian 双链文档体系。<strong>DESIGN_核心系统设计文档</strong> 是核心机制总纲；每个具体机制都有对应的 <strong>DESIGN_</strong> 文档记录稳定规则和系统边界；<strong>策划案_</strong> 负责执行层内容；<strong>INDEX_开发路线图</strong> 负责整体项目规划。</p>
+        <p>这里展示 Reforge 的 Obsidian 双链文档体系。<strong>DESIGN_核心系统设计文档</strong> 是核心机制总纲；每个具体机制都有对应的 <strong>DESIGN_</strong> 文档记录稳定规则和系统边界；<strong>策划案_</strong> 负责执行层内容；<strong>DATA_</strong> 记录可配置数据；<strong>INDEX_开发路线图</strong> 负责整体项目规划。</p>
         <p>双链让这些内容形成互相引用的项目知识库，也让设计、研发、美术和进度管理连接成一个可追踪的工作体系。</p>
       </div>
     </div>
@@ -859,6 +890,7 @@
       <div class="grid-4 doc-roles">
         <div class="role-card"><span class="pre">DESIGN_</span><p>稳定机制与系统边界。核心系统设计文档是总纲，每个机制有对应的设计文档。</p></div>
         <div class="role-card"><span class="pre">策划案_</span><p>执行层：实现范围、数值、状态、信号、程序需求和验收标准。</p></div>
+        <div class="role-card"><span class="pre">DATA_</span><p>数据层：天赋池、配置表字段、文案 key、状态与维护信息。</p></div>
         <div class="role-card"><span class="pre">INDEX_</span><p>整体项目规划：阶段目标、任务拆分、优先级与完成状态，链接到对应文档。</p></div>
         <div class="role-card"><span class="pre">ART_</span><p>美术方向与资产规格：尺寸规则、Prompt 规范、原型表现与资源接入。</p></div>
       </div>
@@ -870,6 +902,50 @@
           <a data-doc="design_世界观设计文档"><b>世界观设计文档</b><span>边境废墟与裂隙</span></a>
           <a data-doc="design_能量系统"><b>能量系统</b><span>弹反获能 · 超频</span></a>
           <a data-doc="index_开发路线图"><b>开发路线图</b><span>阶段目标与进度</span></a>
+          <a data-doc="data_配置表设计样例"><b>配置表设计样例</b><span>CSV 字段与验收</span></a>
+        </div>
+      </div>
+
+      <div class="config-showcase">
+        <div class="section-head">
+          <h2>Config Tables<span class="cn">配置表样例</span></h2>
+          <span class="more">CSV · 可下载</span>
+        </div>
+        <p class="config-note">这里展示《Reforge》P0 系统的配置表拆分方式。每张表都保留唯一 id、来源文档和验收检查项，用来说明系统规则如何转化为可维护的数据字段。</p>
+        <div class="config-cards">
+          <article class="config-card" data-config-table data-src="assets/config/talent_config.csv">
+            <div class="config-card-head">
+              <div>
+                <div class="tag">01 · TALENT</div>
+                <h3>talent_config.csv</h3>
+              </div>
+              <a href="assets/config/talent_config.csv" download>下载 CSV</a>
+            </div>
+            <div class="config-table-wrap"><table class="config-table"><tbody><tr><td>配置表加载中</td></tr></tbody></table></div>
+            <div class="config-card-foot">用于维护天赋 id、文案 key、层级、流派、关键词、触发条件和验收规则。</div>
+          </article>
+          <article class="config-card" data-config-table data-src="assets/config/enemy_config.csv">
+            <div class="config-card-head">
+              <div>
+                <div class="tag">02 · ENEMY</div>
+                <h3>enemy_config.csv</h3>
+              </div>
+              <a href="assets/config/enemy_config.csv" download>下载 CSV</a>
+            </div>
+            <div class="config-table-wrap"><table class="config-table"><tbody><tr><td>配置表加载中</td></tr></tbody></table></div>
+            <div class="config-card-foot">用于维护敌人基础属性、攻击节奏、弹反窗口和测试口径。</div>
+          </article>
+          <article class="config-card" data-config-table data-src="assets/config/energy_config.csv">
+            <div class="config-card-head">
+              <div>
+                <div class="tag">03 · ENERGY</div>
+                <h3>energy_config.csv</h3>
+              </div>
+              <a href="assets/config/energy_config.csv" download>下载 CSV</a>
+            </div>
+            <div class="config-table-wrap"><table class="config-table"><tbody><tr><td>配置表加载中</td></tr></tbody></table></div>
+            <div class="config-card-foot">用于维护能量上限、弹反回能、超频消耗和光核兑换比例。</div>
+          </article>
         </div>
       </div>
     </div>
@@ -1415,6 +1491,29 @@
     el.setAttribute('href', slug ? DOCS_BASE + '/' + encodeURIComponent(slug) : DOCS_BASE + '/');
     el.setAttribute('target','_blank');
     el.setAttribute('rel','noopener');
+  });
+
+  // ===== 配置表 CSV 预览 =====
+  function parseSimpleCsv(text){
+    return text.trim().split(/\r?\n/).filter(Boolean).map(line=>line.split(','));
+  }
+  function renderConfigTable(card, rows){
+    const table = card.querySelector('table');
+    if(!table || rows.length===0) return;
+    const head = rows[0];
+    const body = rows.slice(1, 5);
+    table.innerHTML = '<thead><tr>' + head.map(h=>`<th>${h}</th>`).join('') + '</tr></thead>' +
+      '<tbody>' + body.map(row=>'<tr>' + head.map((_, i)=>`<td>${row[i] || ''}</td>`).join('') + '</tr>').join('') + '</tbody>';
+  }
+  document.querySelectorAll('[data-config-table]').forEach(async card=>{
+    try{
+      const res = await fetch(card.dataset.src);
+      if(!res.ok) throw new Error('csv not found');
+      renderConfigTable(card, parseSimpleCsv(await res.text()));
+    }catch(err){
+      const table = card.querySelector('table');
+      if(table) table.innerHTML = '<tbody><tr><td>配置表暂未加载，可直接下载 CSV 查看。</td></tr></tbody>';
+    }
   });
 
   // ===== 页面切换 =====
