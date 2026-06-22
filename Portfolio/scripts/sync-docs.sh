@@ -24,6 +24,7 @@ WHITELIST=(
   "DESIGN_天赋池设计.md"
   "DATA_天赋池.md"
   "DATA_配置表设计样例.md"
+  "参考资料_配置表与数值策划.md"
   "策划案_项目基建.md"
   "ART_美术失败复盘.md"
   "ART_美术方向与资产规格.md"

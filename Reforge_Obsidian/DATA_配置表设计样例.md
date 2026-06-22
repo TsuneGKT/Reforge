@@ -1,7 +1,7 @@
 # DATA_配置表设计样例
 
 > 展示重点：配置表维护、基础数值调试、系统需求拆分、功能测试。
-> 关联文档 → [[DESIGN_核心系统设计文档]] [[策划案_能量系统]] [[策划案_锈犬]] [[DATA_天赋池]]
+> 关联文档 → [[DESIGN_核心系统设计文档]] [[策划案_能量系统]] [[策划案_锈犬]] [[DATA_天赋池]] [[参考资料_配置表与数值策划]]
 
 ---
 
@@ -9,7 +9,7 @@
 
 本文件用于展示《Reforge》P0 系统如何拆分为可维护、可测试、可交付给程序读取的配置数据。
 
-配置表不是单纯记录数值，而是把系统规则转化为结构化字段。策划通过配置表维护内容条目、数值参数、文案 key、触发条件和验收检查项，程序通过字段读取数据并在游戏中生成对应表现。
+配置表用于把系统规则转化为结构化字段。策划通过配置表维护内容条目、数值参数、文案 key、触发条件和验收检查项，程序通过字段读取数据并在游戏中生成对应表现。
 
 ---
 
@@ -34,7 +34,31 @@
 
 ---
 
-## 4. talent_config 字段说明
+## 4. 源表结构示例
+
+网页展示的 CSV 采用轻量结构，便于面试官直接浏览和下载。策划源表可以在 Excel / xlsx 中加入字段类型、字段说明和校验规则，再由工具导出为 CSV、JSON、Godot Resource 或 Dictionary。
+
+以下是 `talent_config` 的源表结构示例：
+
+| 行用途 | talent_id | name_key | desc_key | tier | main_build | keyword | trigger | effect_param | cost_rule | status | source_doc | check_rule |
+|--------|-----------|----------|----------|------|------------|---------|---------|--------------|-----------|--------|------------|------------|
+| 字段名 | talent_id | name_key | desc_key | tier | main_build | keyword | trigger | effect_param | cost_rule | status | source_doc | check_rule |
+| 类型 | string | string | string | int | enum | enum | enum | string | string | enum | string | string |
+| 中文说明 | 天赋唯一 id | 名称多语言 key | 描述多语言 key | 天赋层级 | 主流派 | 关键词 | 触发条件 | 效果参数 | 消耗规则 | 当前状态 | 来源文档 | 验收检查 |
+| 校验规则 | unique|required | localization_key|required | localization_key|required | enum:1/2/3 | enum:attack/parry/overclock | ref:keyword | enum:trigger_type | required | optional | enum:candidate/active/deprecated | ref:obsidian_doc | required |
+| 数据示例 | talent_deflect_resonance | talent.deflect_resonance.name | talent.deflect_resonance.desc | 2 | parry | resonance | parry_success | next_attack_overclock | requires_overclock_energy | candidate | DATA_天赋池 | 弹反成功后下一次普攻获得超频效果 |
+
+源表维护重点：
+
+1. `字段名` 服务程序读取，保持英文、稳定、可追踪。
+2. `类型` 服务导表和校验，减少字符串、数字、枚举混用。
+3. `中文说明` 服务策划、程序和测试协作，降低交接成本。
+4. `校验规则` 服务自动检查，包括唯一 id、枚举范围、跨表引用和必填项。
+5. `数据示例` 服务作品集展示，说明字段如何落到具体条目。
+
+---
+
+## 5. talent_config 字段说明
 
 | 字段 | 含义 | 示例 |
 |------|------|------|
@@ -53,7 +77,7 @@
 
 ---
 
-## 5. enemy_config 字段说明
+## 6. enemy_config 字段说明
 
 | 字段 | 含义 | 示例 |
 |------|------|------|
@@ -71,7 +95,7 @@
 
 ---
 
-## 6. energy_config 字段说明
+## 7. energy_config 字段说明
 
 | 字段 | 含义 | 示例 |
 |------|------|------|
@@ -85,7 +109,7 @@
 
 ---
 
-## 7. 与程序实现关系
+## 8. 与程序实现关系
 
 P0 当前以 Godot Resource、脚本常量和局部数据文件完成原型验证。正式配置表用于展示策划字段拆分能力，并为后续数据驱动实现预留结构。
 

@@ -107,6 +107,11 @@ window.GRAPH_DATA = {
 "slug": "策划案_天赋系统"
 },
 {
+"id": "参考资料_配置表与数值策划",
+"pub": true,
+"slug": "参考资料_配置表与数值策划"
+},
+{
 "id": "DATA_配置表设计样例",
 "pub": true,
 "slug": "data_配置表设计样例"
@@ -368,6 +373,22 @@ window.GRAPH_DATA = {
 {
 "source": "策划案_能量系统",
 "target": "策划案_天赋系统"
+},
+{
+"source": "参考资料_配置表与数值策划",
+"target": "DATA_配置表设计样例"
+},
+{
+"source": "参考资料_配置表与数值策划",
+"target": "DATA_天赋池"
+},
+{
+"source": "参考资料_配置表与数值策划",
+"target": "策划案_能量系统"
+},
+{
+"source": "参考资料_配置表与数值策划",
+"target": "策划案_锈犬"
 },
 {
 "source": "DESIGN_天赋系统",
