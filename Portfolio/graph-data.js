@@ -127,14 +127,14 @@ window.GRAPH_DATA = {
 "slug": "art_原型表现规范与p0资源接入"
 },
 {
-"id": "策划案_原型表现系统",
-"pub": false,
-"slug": "策划案_原型表现系统"
-},
-{
 "id": "ART_美术方向与资产规格",
 "pub": true,
 "slug": "art_美术方向与资产规格"
+},
+{
+"id": "策划案_原型表现系统",
+"pub": false,
+"slug": "策划案_原型表现系统"
 },
 {
 "id": "策划案_房间推进系统",
@@ -564,11 +564,11 @@ window.GRAPH_DATA = {
 },
 {
 "source": "INDEX_开发路线图",
-"target": "策划案_原型表现系统"
+"target": "ART_美术方向与资产规格"
 },
 {
 "source": "INDEX_开发路线图",
-"target": "ART_美术方向与资产规格"
+"target": "策划案_原型表现系统"
 },
 {
 "source": "INDEX_开发路线图",

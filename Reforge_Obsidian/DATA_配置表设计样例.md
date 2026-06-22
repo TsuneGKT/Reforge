@@ -38,15 +38,41 @@
 
 网页展示的 CSV 采用轻量结构，便于面试官直接浏览和下载。策划源表可以在 Excel / xlsx 中加入字段类型、字段说明和校验规则，再由工具导出为 CSV、JSON、Godot Resource 或 Dictionary。
 
-以下是 `talent_config` 的源表结构示例：
+以下是 `talent_config` 的源表结构示例。网页中拆成字段字典和示例行，提升长字段表的阅读效率；实际维护时可以在 Excel / xlsx 中使用同一套字段。
 
-| 行用途 | talent_id | name_key | desc_key | tier | main_build | keyword | trigger | effect_param | cost_rule | status | source_doc | check_rule |
-|--------|-----------|----------|----------|------|------------|---------|---------|--------------|-----------|--------|------------|------------|
-| 字段名 | talent_id | name_key | desc_key | tier | main_build | keyword | trigger | effect_param | cost_rule | status | source_doc | check_rule |
-| 类型 | string | string | string | int | enum | enum | enum | string | string | enum | string | string |
-| 中文说明 | 天赋唯一 id | 名称多语言 key | 描述多语言 key | 天赋层级 | 主流派 | 关键词 | 触发条件 | 效果参数 | 消耗规则 | 当前状态 | 来源文档 | 验收检查 |
-| 校验规则 | unique, required | localization_key, required | localization_key, required | enum:1/2/3 | enum:attack/parry/overclock | ref:keyword | enum:trigger_type | required | optional | enum:candidate/active/deprecated | ref:obsidian_doc | required |
-| 数据示例 | talent_deflect_resonance | talent.deflect_resonance.name | talent.deflect_resonance.desc | 2 | parry | resonance | parry_success | next_attack_overclock | requires_overclock_energy | candidate | DATA_天赋池 | 弹反成功后下一次普攻获得超频效果 |
+字段字典：
+
+| 字段 | 类型 | 校验规则 | 中文说明 |
+|------|------|----------|----------|
+| talent_id | string | unique, required | 天赋唯一 id |
+| name_key | string | localization_key, required | 名称多语言 key |
+| desc_key | string | localization_key, required | 描述多语言 key |
+| tier | int | enum:1/2/3 | 天赋层级 |
+| main_build | enum | enum:attack/parry/overclock | 主流派 |
+| keyword | enum | ref:keyword | 关键词 |
+| trigger | enum | enum:trigger_type | 触发条件 |
+| effect_param | string | required | 效果参数 |
+| cost_rule | string | optional | 消耗规则 |
+| status | enum | enum:candidate/active/deprecated | 当前状态 |
+| source_doc | string | ref:obsidian_doc | 来源文档 |
+| check_rule | string | required | 验收检查 |
+
+示例行：
+
+| 字段 | 示例 |
+|------|------|
+| talent_id | talent_deflect_resonance |
+| name_key | talent.deflect_resonance.name |
+| desc_key | talent.deflect_resonance.desc |
+| tier | 2 |
+| main_build | parry |
+| keyword | resonance |
+| trigger | parry_success |
+| effect_param | next_attack_overclock |
+| cost_rule | requires_overclock_energy |
+| status | candidate |
+| source_doc | DATA_天赋池 |
+| check_rule | 弹反成功后下一次普攻获得超频效果 |
 
 源表维护重点：
 
