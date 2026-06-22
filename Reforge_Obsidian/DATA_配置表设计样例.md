@@ -45,7 +45,7 @@
 | 字段名 | talent_id | name_key | desc_key | tier | main_build | keyword | trigger | effect_param | cost_rule | status | source_doc | check_rule |
 | 类型 | string | string | string | int | enum | enum | enum | string | string | enum | string | string |
 | 中文说明 | 天赋唯一 id | 名称多语言 key | 描述多语言 key | 天赋层级 | 主流派 | 关键词 | 触发条件 | 效果参数 | 消耗规则 | 当前状态 | 来源文档 | 验收检查 |
-| 校验规则 | unique|required | localization_key|required | localization_key|required | enum:1/2/3 | enum:attack/parry/overclock | ref:keyword | enum:trigger_type | required | optional | enum:candidate/active/deprecated | ref:obsidian_doc | required |
+| 校验规则 | unique, required | localization_key, required | localization_key, required | enum:1/2/3 | enum:attack/parry/overclock | ref:keyword | enum:trigger_type | required | optional | enum:candidate/active/deprecated | ref:obsidian_doc | required |
 | 数据示例 | talent_deflect_resonance | talent.deflect_resonance.name | talent.deflect_resonance.desc | 2 | parry | resonance | parry_success | next_attack_overclock | requires_overclock_energy | candidate | DATA_天赋池 | 弹反成功后下一次普攻获得超频效果 |
 
 源表维护重点：
