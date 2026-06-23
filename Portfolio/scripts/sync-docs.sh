@@ -29,8 +29,11 @@ WHITELIST=(
   "ART_美术失败复盘.md"
   "ART_美术方向与资产规格.md"
   "游戏经历.md"
+  "ACG内容观察.md"
   "拆解_Dead Cells.md"
   "拆解_Sekiro.md"
+  "拆解_如龙0.md"
+  "礼心_都市黑道故事设定_v1.1.md"
 )
 
 mkdir -p "$DEST"
