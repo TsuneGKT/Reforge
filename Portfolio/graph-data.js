@@ -3,271 +3,325 @@ window.GRAPH_DATA = {
 "nodes": [
 {
 "id": "DESIGN_核心系统设计文档",
+"label": "Reforge（重锻）· 核心系统设计文档",
 "pub": true,
 "slug": "design_核心系统设计文档"
 },
 {
 "id": "DESIGN_世界观设计文档",
+"label": "Reforge（重锻）· 世界观设计文档",
 "pub": true,
 "slug": "design_世界观设计文档"
 },
 {
 "id": "DESIGN_玩家行为系统",
+"label": "Reforge（重锻）· 玩家行为系统设计文档",
 "pub": true,
 "slug": "design_玩家行为系统"
 },
 {
 "id": "DESIGN_能量系统",
+"label": "Reforge（重锻）· 能量系统设计文档",
 "pub": true,
 "slug": "design_能量系统"
 },
 {
 "id": "DESIGN_光核与祭坛",
+"label": "Reforge（重锻）· 光核与祭坛设计文档",
 "pub": true,
 "slug": "design_光核与祭坛"
 },
 {
 "id": "DESIGN_天赋系统",
+"label": "Reforge（重锻）· 天赋系统设计文档",
 "pub": true,
 "slug": "design_天赋系统"
 },
 {
 "id": "DESIGN_天赋池设计",
+"label": "Reforge（重锻）· 天赋池设计文档",
 "pub": true,
 "slug": "design_天赋池设计"
 },
 {
 "id": "DATA_天赋池",
+"label": "Reforge（重锻）· 天赋池数据表",
 "pub": true,
 "slug": "data_天赋池"
 },
 {
 "id": "策划案_光核与祭坛",
+"label": "策划案_光核与祭坛",
 "pub": true,
 "slug": "策划案_光核与祭坛"
 },
 {
 "id": "DESIGN_模板",
+"label": "DESIGN_模板",
 "pub": false,
 "slug": "design_模板"
 },
 {
-"id": "游戏经历",
-"pub": true,
-"slug": "游戏经历"
-},
-{
-"id": "拆解_Sekiro",
-"pub": true,
-"slug": "拆解_sekiro"
-},
-{
-"id": "拆解_Dead Cells",
-"pub": true,
-"slug": "拆解_dead-cells"
-},
-{
 "id": "策划案_项目基建",
+"label": "策划案_项目基建",
 "pub": true,
 "slug": "策划案_项目基建"
 },
 {
 "id": "INDEX_开发路线图",
+"label": "Reforge（重锻）· 开发路线图",
 "pub": true,
 "slug": "index_开发路线图"
 },
 {
 "id": "策划案_能量系统",
+"label": "策划案_能量系统",
 "pub": true,
 "slug": "策划案_能量系统"
 },
 {
 "id": "ACG内容观察",
+"label": "ACG内容观察",
 "pub": true,
 "slug": "acg内容观察"
 },
 {
 "id": "拆解_如龙0",
+"label": "拆解_如龙0",
 "pub": true,
 "slug": "拆解_如龙0"
 },
 {
 "id": "策划案_锈犬",
+"label": "策划案_锈犬",
 "pub": true,
 "slug": "策划案_锈犬"
 },
 {
 "id": "DESIGN_敌人系统",
+"label": "Reforge（重锻）· 敌人系统设计文档",
 "pub": true,
 "slug": "design_敌人系统"
 },
 {
 "id": "策划案_玩家行为系统",
+"label": "策划案_玩家行为系统",
 "pub": true,
 "slug": "策划案_玩家行为系统"
 },
 {
 "id": "策划案_打击感与反馈",
+"label": "策划案_打击感与反馈",
 "pub": false,
 "slug": "策划案_打击感与反馈"
 },
 {
 "id": "策划案_天赋系统",
+"label": "策划案_天赋系统",
 "pub": true,
 "slug": "策划案_天赋系统"
 },
 {
 "id": "礼心_都市黑道故事设定_v1.1",
+"label": "《礼心》都市黑道故事设定 v1.1",
 "pub": true,
 "slug": "礼心_都市黑道故事设定_v1.1"
 },
 {
 "id": "参考资料_配置表与数值策划",
+"label": "参考资料_配置表与数值策划",
 "pub": true,
 "slug": "参考资料_配置表与数值策划"
 },
 {
 "id": "DATA_配置表设计样例",
+"label": "DATA_配置表设计样例",
 "pub": true,
 "slug": "data_配置表设计样例"
 },
 {
+"id": "拆解_Dead Cells",
+"label": "拆解_Dead Cells",
+"pub": true,
+"slug": "拆解_dead-cells"
+},
+{
+"id": "拆解_Sekiro",
+"label": "拆解_Sekiro",
+"pub": true,
+"slug": "拆解_sekiro"
+},
+{
 "id": "策划案_模板",
+"label": "策划案_模板",
 "pub": false,
 "slug": "策划案_模板"
 },
 {
 "id": "ART_原型表现规范与P0资源接入",
+"label": "ART_原型表现规范与P0资源接入",
 "pub": false,
 "slug": "art_原型表现规范与p0资源接入"
 },
 {
 "id": "ART_美术方向与资产规格",
+"label": "Reforge（重锻）· 美术方向与资产规格",
 "pub": true,
 "slug": "art_美术方向与资产规格"
 },
 {
 "id": "策划案_原型表现系统",
+"label": "策划案_原型表现系统",
 "pub": false,
 "slug": "策划案_原型表现系统"
 },
 {
 "id": "策划案_房间推进系统",
+"label": "策划案_房间推进系统",
 "pub": false,
 "slug": "策划案_房间推进系统"
 },
 {
 "id": "策划案_腐鹿",
+"label": "策划案_腐鹿",
 "pub": false,
 "slug": "策划案_腐鹿"
 },
 {
 "id": "策划案_巡墙甲",
+"label": "策划案_巡墙甲",
 "pub": false,
 "slug": "策划案_巡墙甲"
 },
 {
 "id": "策划案_甲鼠",
+"label": "策划案_甲鼠",
 "pub": false,
 "slug": "策划案_甲鼠"
 },
 {
 "id": "策划案_残弩",
+"label": "策划案_残弩",
 "pub": false,
 "slug": "策划案_残弩"
 },
 {
 "id": "策划案_孢菇",
+"label": "策划案_孢菇",
 "pub": false,
 "slug": "策划案_孢菇"
 },
 {
 "id": "策划案_老骑士",
+"label": "策划案_老骑士",
 "pub": false,
 "slug": "策划案_老骑士"
 },
 {
 "id": "策划案_UI与游戏流程",
+"label": "策划案_UI与游戏流程",
 "pub": false,
 "slug": "策划案_ui与游戏流程"
 },
 {
 "id": "策划案_局流程管理",
+"label": "策划案_局流程管理",
 "pub": false,
 "slug": "策划案_局流程管理"
 },
 {
 "id": "策划案_Meta成长系统",
+"label": "策划案_Meta成长系统",
 "pub": false,
 "slug": "策划案_meta成长系统"
 },
 {
 "id": "策划案_异铸骑士",
+"label": "策划案_异铸骑士",
 "pub": false,
 "slug": "策划案_异铸骑士"
 },
 {
 "id": "策划案_年轻骑士",
+"label": "策划案_年轻骑士",
 "pub": false,
 "slug": "策划案_年轻骑士"
 },
 {
 "id": "策划案_游魂灯",
+"label": "策划案_游魂灯",
 "pub": false,
 "slug": "策划案_游魂灯"
 },
 {
 "id": "策划案_铁罐",
+"label": "策划案_铁罐",
 "pub": false,
 "slug": "策划案_铁罐"
 },
 {
 "id": "策划案_残烛祭像",
+"label": "策划案_残烛祭像",
 "pub": false,
 "slug": "策划案_残烛祭像"
 },
 {
 "id": "策划案_商店系统",
+"label": "策划案_商店系统",
 "pub": false,
 "slug": "策划案_商店系统"
 },
 {
 "id": "策划案_随机事件",
+"label": "策划案_随机事件",
 "pub": false,
 "slug": "策划案_随机事件"
 },
 {
 "id": "策划案_美术规范",
+"label": "策划案_美术规范",
 "pub": false,
 "slug": "策划案_美术规范"
 },
 {
 "id": "策划案_数值平衡",
+"label": "策划案_数值平衡",
 "pub": false,
 "slug": "策划案_数值平衡"
 },
 {
+"id": "game-experience",
+"label": "游戏经历",
+"pub": true,
+"slug": "game-experience"
+},
+{
 "id": "ART_美术失败复盘",
+"label": "Reforge（重锻）· 美术失败复盘",
 "pub": true,
 "slug": "art_美术失败复盘"
 },
 {
 "id": "ART_P0美术尺寸规则",
+"label": "ART_P0美术尺寸规则",
 "pub": false,
 "slug": "art_p0美术尺寸规则"
 },
 {
 "id": "ART_AI生图Prompt规范",
+"label": "ART_AI生图Prompt规范",
 "pub": false,
 "slug": "art_ai生图prompt规范"
 },
 {
 "id": "Reforge 美术技术方案：两条路线对比",
+"label": "Reforge 美术技术方案：两条路线对比",
 "pub": false,
 "slug": "reforge-美术技术方案：两条路线对比"
 },
 {
 "id": "ART_攻击动画分层规范",
+"label": "ART_攻击动画分层规范",
 "pub": false,
 "slug": "art_攻击动画分层规范"
 }
@@ -316,14 +370,6 @@ window.GRAPH_DATA = {
 {
 "source": "DESIGN_光核与祭坛",
 "target": "DESIGN_模板"
-},
-{
-"source": "游戏经历",
-"target": "拆解_Sekiro"
-},
-{
-"source": "游戏经历",
-"target": "拆解_Dead Cells"
 },
 {
 "source": "策划案_项目基建",
@@ -684,6 +730,14 @@ window.GRAPH_DATA = {
 {
 "source": "DESIGN_天赋池设计",
 "target": "INDEX_开发路线图"
+},
+{
+"source": "game-experience",
+"target": "拆解_Sekiro"
+},
+{
+"source": "game-experience",
+"target": "拆解_Dead Cells"
 },
 {
 "source": "策划案_天赋系统",

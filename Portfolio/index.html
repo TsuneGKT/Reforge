@@ -1587,9 +1587,9 @@
       .data(nodes).join('text')
       .attr('class', d=>'glabel'+(d.pub?' pubLabel':''))
       .attr('text-anchor','middle')
-      .text(d=> d.id.replace(/^(DESIGN|INDEX|DATA|ART|策划案)_/,''));
+      .text(d=> (d.label || d.id).replace(/^(DESIGN|INDEX|DATA|ART|策划案)_/,''));
 
-    node.append('title').text(d=> d.id + (d.pub?'':'（未公开）'));
+    node.append('title').text(d=> (d.label || d.id) + (d.pub?'':'（未公开）'));
 
     // 点击公开节点 → 开 Quartz 文档（DOCS_BASE 见上方）
     node.filter(d=>d.pub).on('click',(e,d)=>

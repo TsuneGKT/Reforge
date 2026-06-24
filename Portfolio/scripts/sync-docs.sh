@@ -28,12 +28,15 @@ WHITELIST=(
   "策划案_项目基建.md"
   "ART_美术失败复盘.md"
   "ART_美术方向与资产规格.md"
-  "游戏经历.md"
   "ACG内容观察.md"
   "拆解_Dead Cells.md"
   "拆解_Sekiro.md"
   "拆解_如龙0.md"
   "礼心_都市黑道故事设定_v1.1.md"
+)
+
+ALIASES=(
+  "游戏经历.md|game-experience.md|游戏经历"
 )
 
 mkdir -p "$DEST"
@@ -46,6 +49,20 @@ for doc in "${WHITELIST[@]}"; do
     echo "sync: $doc"
   else
     echo "missing: $doc" >&2
+    missing=1
+  fi
+done
+
+for item in "${ALIASES[@]}"; do
+  IFS="|" read -r src dest title <<< "$item"
+  if [ -f "$VAULT/$src" ]; then
+    {
+      printf -- "---\ntitle: %s\n---\n\n" "$title"
+      cat "$VAULT/$src"
+    } > "$DEST/$dest"
+    echo "sync: $src -> $dest"
+  else
+    echo "missing: $src" >&2
     missing=1
   fi
 done

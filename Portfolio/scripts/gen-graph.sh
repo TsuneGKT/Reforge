@@ -16,10 +16,32 @@ content, out, block = sys.argv[1], sys.argv[2], sys.argv[3]
 blockre = re.compile(block) if block else None
 
 published = set()
+titles = {}
+
+def clean_title(raw):
+    return raw.strip().strip('"').strip("'")
+
+def read_title(path, fallback):
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            frontmatter = text[3:end]
+            match = re.search(r"(?m)^title:\s*(.+?)\s*$", frontmatter)
+            if match:
+                return clean_title(match.group(1))
+    match = re.search(r"(?m)^#\s+(.+?)\s*$", text)
+    if match:
+        return clean_title(match.group(1))
+    return fallback
+
 if os.path.isdir(content):
     for fn in os.listdir(content):
         if fn.endswith(".md") and fn != "index.md":
-            published.add(fn[:-3])
+            name = fn[:-3]
+            published.add(name)
+            titles[name] = read_title(os.path.join(content, fn), name)
 
 def slug(name):
     return re.sub(r"\s+", "-", name.lower())
@@ -31,7 +53,7 @@ def add_node(name):
     if blockre and blockre.search(name):
         return False
     if name not in nodes:
-        nodes[name] = {"id": name, "pub": name in published}
+        nodes[name] = {"id": name, "label": titles.get(name, name), "pub": name in published}
     return True
 
 link_re = re.compile(r"\[\[([^\]]+)\]\]")
@@ -62,7 +84,7 @@ for a, b in edges:
     links.append([a, b])
 
 data = {
-    "nodes": [{"id": n["id"], "pub": n["pub"], "slug": slug(n["id"])} for n in nodes.values()],
+    "nodes": [{"id": n["id"], "label": n["label"], "pub": n["pub"], "slug": slug(n["id"])} for n in nodes.values()],
     "links": [{"source": a, "target": b} for a, b in links],
 }
 
