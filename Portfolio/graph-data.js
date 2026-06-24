@@ -504,34 +504,6 @@ window.GRAPH_DATA = {
 "target": "INDEX_开发路线图"
 },
 {
-"source": "拆解_Dead Cells",
-"target": "DESIGN_核心系统设计文档"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "DESIGN_玩家行为系统"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "DESIGN_能量系统"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "DESIGN_天赋系统"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "DESIGN_光核与祭坛"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "DATA_天赋池"
-},
-{
-"source": "拆解_Dead Cells",
-"target": "策划案_天赋系统"
-},
-{
 "source": "策划案_光核与祭坛",
 "target": "DESIGN_核心系统设计文档"
 },
@@ -581,18 +553,6 @@ window.GRAPH_DATA = {
 },
 {
 "source": "拆解_Sekiro",
-"target": "DESIGN_玩家行为系统"
-},
-{
-"source": "拆解_Sekiro",
-"target": "策划案_玩家行为系统"
-},
-{
-"source": "拆解_Sekiro",
-"target": "策划案_锈犬"
-},
-{
-"source": "拆解_Sekiro",
 "target": "策划案_能量系统"
 },
 {
@@ -602,6 +562,14 @@ window.GRAPH_DATA = {
 {
 "source": "拆解_Sekiro",
 "target": "DATA_天赋池"
+},
+{
+"source": "拆解_Sekiro",
+"target": "策划案_锈犬"
+},
+{
+"source": "拆解_Sekiro",
+"target": "策划案_玩家行为系统"
 },
 {
 "source": "INDEX_开发路线图",
