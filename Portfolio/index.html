@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>策划案之外 · 游戏策划作品集</title>
+<title>策划案之外 · AI 协作作品集</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23111'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%23c8102e'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/fonts/google/fonts.css">
 <link rel="stylesheet" href="assets/fonts/jhlst/result.css">
@@ -1289,6 +1289,8 @@
   (function(){
     const params = new URLSearchParams(window.location.search);
     if(params.get('profile') !== 'design') return;
+
+    document.title = '策划案之外 · 游戏策划作品集';
 
     const heroKicker = document.getElementById('heroKicker');
     const heroIntro = document.getElementById('heroIntro');
