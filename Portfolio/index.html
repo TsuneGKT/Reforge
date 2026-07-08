@@ -606,17 +606,17 @@
   <section class="hero">
     <div class="hero-inner">
       <div>
-        <div class="kicker">■ Game Design Portfolio · Reforge</div>
+        <div class="kicker" id="heroKicker">■ AI Collaboration Portfolio · Reforge</div>
         <h1><span class="seg">策划案之外，</span><span class="seg"><span class="red">皆是实践</span>。</span></h1>
-        <div class="intro-text">
+        <div class="intro-text" id="heroIntro">
           <p class="welcome"><b>欢迎来到我的个人网页，感谢您的浏览。</b></p>
-          <p>我正在寻找游戏策划实习机会。这个网页记录了我从 0 到 1 独立开发游戏《Reforge》的过程，也整理了我在 AI 协作、系统设计、文档管理和项目推进中的一些实践。</p>
-          <p>《Reforge》是一款 2D 俯视角动作 Roguelike。目前项目已经确定核心机制，完成了 P0 Core Loop，并围绕游戏机制建立了对应的设计文档、策划案和开发路线图。</p>
+          <p>这里记录了我使用 AI 协作推进个人项目的过程。希望通过这些内容，呈现我使用 AI 工具进行学习、创作、项目推进和结果交付的能力。</p>
+          <p>在《Reforge》项目中，我使用 Obsidian 双链搭建项目知识库，用 Codex 建立主策、系统策划、研发、美术等多窗口协作流程，并通过专用 Skill 保持项目上下文、文档规范和开发口径。除此之外，这里也展示了一些 vibe coding 项目、游戏拆解和个人经历。</p>
         </div>
-        <div class="meta">
+        <div class="meta" id="heroMeta">
           <span>在做的游戏 · <b>Reforge</b></span>
-          <span>方向 · <b>游戏策划</b></span>
-          <span>引擎 · <b class="en">Godot 4</b></span>
+          <span>方式 · <b>AI 协作</b></span>
+          <span>工具 · <b class="en">Obsidian / Codex</b></span>
         </div>
       </div>
       <div class="hero-visual">
@@ -1285,6 +1285,29 @@
 </div>
 
 <script>
+  // ===== 首页简介双入口：默认 AI 协作版，?profile=design 显示游戏策划版 =====
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    if(params.get('profile') !== 'design') return;
+
+    const heroKicker = document.getElementById('heroKicker');
+    const heroIntro = document.getElementById('heroIntro');
+    const heroMeta = document.getElementById('heroMeta');
+    if(!heroKicker || !heroIntro || !heroMeta) return;
+
+    heroKicker.textContent = '■ Game Design Portfolio · Reforge';
+    heroIntro.innerHTML = `
+      <p class="welcome"><b>欢迎来到我的个人网页，感谢您的浏览。</b></p>
+      <p>我正在寻找游戏策划实习机会。这个网页记录了我从 0 到 1 独立开发游戏《Reforge》的过程，也整理了我在 AI 协作、系统设计、文档管理和项目推进中的一些实践。</p>
+      <p>《Reforge》是一款 2D 俯视角动作 Roguelike。目前项目已经确定核心机制，完成了 P0 Core Loop，并围绕游戏机制建立了对应的设计文档、策划案和开发路线图。</p>
+    `;
+    heroMeta.innerHTML = `
+      <span>在做的游戏 · <b>Reforge</b></span>
+      <span>方向 · <b>游戏策划</b></span>
+      <span>引擎 · <b class="en">Godot 4</b></span>
+    `;
+  })();
+
   // ===== 实践折叠列表（可同时展开多个）=====
   document.querySelectorAll('.acc-head').forEach(h=>{
     h.addEventListener('click', ()=> h.closest('.acc-item').classList.toggle('open'));
