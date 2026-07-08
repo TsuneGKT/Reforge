@@ -629,25 +629,25 @@
   <section>
     <div class="inner">
       <div class="chapter">
-        <span class="ch-no">01 — 想展现的三种能力</span>
+        <span class="ch-no" id="abilitiesChapterNo">01 — AI 协作下的三种能力</span>
         <h2>能力体现</h2>
         <span class="ch-en">Abilities</span>
       </div>
-      <div class="abilities">
+      <div class="abilities" id="homeAbilities">
         <div class="ability">
           <div class="no">壹</div>
-          <h3>验证玩法的能力</h3>
-          <p>对一名合格的游戏策划而言，关键能力包括提出玩法想法，并把想法通过引擎做成可以验证、可以体验、可以调整的原型。《Reforge》使用 Godot 引擎开发，目前已经验证了核心循环和核心玩法。</p>
+          <h3>用 AI 推进项目落地的能力</h3>
+          <p>在《Reforge》项目中，我使用 Codex 辅助资料整理、方案推演、代码实现和复盘检查，把玩法想法推进为设计文档、Godot 原型、作品集网页和公开项目证据。</p>
         </div>
         <div class="ability">
           <div class="no">贰</div>
-          <h3>用 Obsidian 建立系统性文档的能力</h3>
-          <p>我使用 Obsidian 将策划、研发和美术串联起来。DESIGN_ 记录核心系统规则，策划案_ 记录实现范围和验收标准，INDEX_开发路线图记录任务拆分和进度，ART_ 记录美术方向与资产规格。双链让这些内容形成互相引用的项目知识库。</p>
+          <h3>用 Obsidian 搭建双链知识库的能力</h3>
+          <p>我使用 Obsidian 双链管理核心系统设计、策划案、配置表、世界观、美术规格和开发路线图，让机制设计、研发需求、美术方向与阶段任务形成可追踪的项目知识库。</p>
         </div>
         <div class="ability">
           <div class="no">叁</div>
-          <h3>与 AI 协作建立工作流的能力</h3>
-          <p>我通过 Codex 建立了一套游戏生产流程：创建 Reforge 专用 Skill，拆分主策、系统策划、研发、美术等对话窗口。讨论、设计、文档和工程实现由此形成连续流程，我负责方向、优先级和最终取舍。</p>
+          <h3>建立多窗口 AI 协作流程的能力</h3>
+          <p>我为 Reforge 创建专用 Skill，并拆分主策、系统策划、研发、美术等对话窗口。AI 参与讨论、整理、实现和验证，项目方向、优先级、范围控制和最终取舍由我负责。</p>
         </div>
       </div>
     </div>
@@ -1293,7 +1293,9 @@
     const heroKicker = document.getElementById('heroKicker');
     const heroIntro = document.getElementById('heroIntro');
     const heroMeta = document.getElementById('heroMeta');
-    if(!heroKicker || !heroIntro || !heroMeta) return;
+    const abilitiesChapterNo = document.getElementById('abilitiesChapterNo');
+    const homeAbilities = document.getElementById('homeAbilities');
+    if(!heroKicker || !heroIntro || !heroMeta || !abilitiesChapterNo || !homeAbilities) return;
 
     heroKicker.textContent = '■ Game Design Portfolio · Reforge';
     heroIntro.innerHTML = `
@@ -1305,6 +1307,24 @@
       <span>在做的游戏 · <b>Reforge</b></span>
       <span>方向 · <b>游戏策划</b></span>
       <span>引擎 · <b class="en">Godot 4</b></span>
+    `;
+    abilitiesChapterNo.textContent = '01 — 想展现的三种能力';
+    homeAbilities.innerHTML = `
+      <div class="ability">
+        <div class="no">壹</div>
+        <h3>验证玩法的能力</h3>
+        <p>对一名合格的游戏策划而言，关键能力包括提出玩法想法，并把想法通过引擎做成可以验证、可以体验、可以调整的原型。《Reforge》使用 Godot 引擎开发，目前已经验证了核心循环和核心玩法。</p>
+      </div>
+      <div class="ability">
+        <div class="no">贰</div>
+        <h3>用 Obsidian 建立系统性文档的能力</h3>
+        <p>我使用 Obsidian 将策划、研发和美术串联起来。DESIGN_ 记录核心系统规则，策划案_ 记录实现范围和验收标准，INDEX_开发路线图记录任务拆分和进度，ART_ 记录美术方向与资产规格。双链让这些内容形成互相引用的项目知识库。</p>
+      </div>
+      <div class="ability">
+        <div class="no">叁</div>
+        <h3>与 AI 协作建立工作流的能力</h3>
+        <p>我通过 Codex 建立了一套游戏生产流程：创建 Reforge 专用 Skill，拆分主策、系统策划、研发、美术等对话窗口。讨论、设计、文档和工程实现由此形成连续流程，我负责方向、优先级和最终取舍。</p>
+      </div>
     `;
   })();
 
